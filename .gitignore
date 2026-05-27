@@ -1,0 +1,17 @@
+# olw local outputs
+.DS_Store
+*.bak
+*.swp
+.obsidian/
+.olw/state*.json
+.olw/*.lock
+.olw/
+
+# olw personal reports
+reports/
+
+# graphify build outputs (regenerable via /graphify ./wiki)
+graphify-out/
+
+# omc state files
+.omc/

@@ -1,0 +1,14 @@
+{
+  "name": "optimism-llm-wiki",
+  "version": "1.0.0",
+  "homepage": "https://github.com/imelon2/optimism-llm-wiki#readme",
+  "bugs": {
+    "url": "https://github.com/imelon2/optimism-llm-wiki/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imelon2/optimism-llm-wiki.git"
+  },
+  "license": "ISC",
+  "author": "choi.eth"
+}

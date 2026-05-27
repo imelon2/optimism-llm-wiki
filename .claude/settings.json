@@ -1,4 +1,7 @@
 {
+  "deny": [
+    "Skill(oh-my-claudecode:wiki)"
+  ],
   "hooks": {
     "PreToolUse": [
       {

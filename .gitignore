@@ -9,6 +9,7 @@
 
 # olw personal reports
 reports/
+wiki/
 
 # graphify build outputs (regenerable via /graphify ./wiki)
 graphify-out/

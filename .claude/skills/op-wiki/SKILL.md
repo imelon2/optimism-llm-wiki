@@ -57,7 +57,7 @@ Once the gate is passed, execute in order:
 
 5. **Merge existing pages** — combine the two versions, but take the union (dedup) for `sources`/`related`/`affects`/`tags`, use the later date for `updated`, and isolate contradictions with `REVIEW: contradiction`. Duplicate slugs are also consolidated to a canonical name via this §merge procedure (references/schema.md §File naming).
 
-6. **Update index.md** — insert an alphabetically ordered `- [[<slug>]] — <title>` row into the relevant type section of `wiki/index.md`.
+6. **Update the index** — insert an alphabetically ordered `- [[<slug>]] — <title>` row into the relevant index. For `type=troubleshooting` pages the target is the dedicated `wiki/troubleshooting.md` index (references/schema.md §Type catalog troubleshooting-index note); for every other type it is the relevant type section of `wiki/index.md`.
 
 7. **Prepend to log.md** — prepend a session entry to `wiki/log.md`. Format:
    ```
@@ -85,7 +85,7 @@ Once the gate is passed, execute in order:
 - [ ] Korean body + English proper-noun policy complied with (English ratio ≤ 30%)
 - [ ] No risky identifiers in the body without a sources citation (if any, `REVIEW: security-claim`)
 - [ ] Contradictions/ambiguities isolated to `.olw/review-queue.md`
-- [ ] Alphabetically ordered row inserted into the relevant type section of `wiki/index.md`
+- [ ] Alphabetically ordered row inserted into the relevant index (`wiki/troubleshooting.md` for troubleshooting pages, otherwise the relevant type section of `wiki/index.md`)
 - [ ] Ingest entry prepended to `wiki/log.md`
 - [ ] Brief entry prepended to `wiki/question.md`
 - [ ] Non-existent `[[X]]` links flagged as `REVIEW: missing-page`

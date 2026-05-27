@@ -106,6 +106,8 @@ A single `type` value determines almost all logic branching — graph node color
 
 **Note the overview exception**: the `overview` type has no folder and exists only as the single file `wiki/overview.md`. If a request comes in to create a new type=overview page, always overwrite/merge into `wiki/overview.md` (op-wiki SKILL.md §merge procedure); do NOT create a separate folder.
 
+**Note the troubleshooting index exception**: troubleshooting *pages* still live in the `wiki/troubleshooting/` folder like any other type, but they are **NOT** listed in `wiki/index.md`. They are cataloged in a dedicated `wiki/troubleshooting.md` index file — a sibling of `wiki/index.md` / `wiki/log.md` at the wiki root — so that temporal incidents are managed separately from the conceptual page catalog. The `## troubleshooting` section therefore does NOT appear in `wiki/index.md`. The op-wiki ingest procedure routes troubleshooting rows to `wiki/troubleshooting.md` instead of `wiki/index.md` (op-wiki SKILL.md §6); this schema only fixes the location convention.
+
 ## Language policy
 
 This is the **single source of truth** for the wiki's language policy (Korean body + English proper nouns/symbols/code). Every ingest LLM call applies the following directive.

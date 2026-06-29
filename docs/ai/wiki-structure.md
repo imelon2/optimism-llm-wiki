@@ -1,6 +1,6 @@
 # Wiki Structure & Page Schema
 
-OP Stack LLM Wiki의 구조와 페이지 작성 표준. 골격은 OKF v0.1, 운영은 Karpathy 3연산. 연산은 [wiki-operations.md](./wiki-operations.md).
+OP Stack LLM Wiki의 구조와 페이지 작성 표준.
 
 ## 디렉토리 & type
 

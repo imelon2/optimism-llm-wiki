@@ -1,0 +1,12 @@
+# olw local outputs
+.DS_Store
+*.bak
+*.swp
+.obsidian/
+
+# graphify build outputs (regenerable via /graphify ./wiki)
+graphify-out/
+
+# omc state files
+.omc/
+.olw/

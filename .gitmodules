@@ -1,0 +1,6 @@
+[submodule "optimism"]
+	path = resource/optimism
+	url = https://github.com/ethereum-optimism/optimism.git
+[submodule "infra"]
+	path = resource/infra
+	url = https://github.com/ethereum-optimism/infra.git

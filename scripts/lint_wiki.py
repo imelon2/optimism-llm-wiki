@@ -29,7 +29,7 @@ from dataclasses import dataclass, field
 # wiki-structure.md 의 tags 축 (분류체계는 등장 빈도에 따라 확장됨 → 경고만)
 KNOWN_TAGS = {
     "op-stack", "bridge", "fault-proofs", "derivation", "batcher", "proposer",
-    "sequencer", "withdrawals", "deposits", "governance", "da", "p2p", "l1", "l2", "rfc",
+    "sequencer", "withdrawals", "deposits", "governance", "da", "p2p", "reth", "l1", "l2", "rfc",
 }
 VALID_TYPES = {"Concept", "Contract", "Component", "Spec", "Runbook", "RFC"}
 OKF_FIELDS = ("type", "title", "description", "resource", "tags", "timestamp")

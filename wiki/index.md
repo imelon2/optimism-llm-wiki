@@ -21,4 +21,4 @@ _아직 없음_
 
 ## Runbooks
 <!-- wiki/runbooks/ — 운영 절차/인시던트 대응 -->
-_아직 없음_
+- [op-reth discv5 Bootnode Timeout 진단](runbooks/op-reth-discv5-bootnode-timeout.md) — enode 부트노드가 `failed adding boot node ... err=Timeout`으로 실패하는 원인(enode→ENR 라이브 요청)과 해결(ENR 사용·포트·UDP 점검)

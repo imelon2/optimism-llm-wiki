@@ -30,9 +30,7 @@ tools: Read, Bash, Grep, Glob, WebSearch, WebFetch, Task, TodoWrite, AskUserQues
 트랙별로 도구를 달리 적용한다. **위키 트랙을 가장 먼저 돈다** — 이미 조사·정리된 내용이 있으면 외부 리서치를 줄이고 그 위에 보강할 수 있다.
 
 ### 위키 트랙
-- 외부 조사 전에 로컬 위키(`wiki/`)에 관련 페이지가 있는지 확인한다.
-- `graphify-out/`가 있으면 graphify로 탐색한다: `graphify query "<주제>"`로 유사 페이지를, `graphify explain "<개념>"`로 개념 설명을, `graphify path "<A>" "<B>"`로 페이지 간 관계를 찾는다.
-- `graphify-out/`가 없으면 `wiki/index.md`를 읽고 관련 페이지로 드릴다운한다.
+- 외부 조사 전에 로컬 위키(`wiki/`)에 관련 페이지가 있는지 `/wiki-query` 스킬로 확인한다.
 - 위키에서 찾은 내용은 **출발점이자 검증 대상**이다 — 위키는 과거 시점 스냅샷이라 stale할 수 있으므로, 사실 주장은 아래 문서·코드 트랙으로 재확인하고 충돌 시 코드를 정본으로 삼는다.
 
 ### 문서 트랙
@@ -69,7 +67,7 @@ tools: Read, Bash, Grep, Glob, WebSearch, WebFetch, Task, TodoWrite, AskUserQues
 - **출처 없는 사실 주장을 하지 않는다.** 문서와 코드가 충돌하면 코드를 정본으로 삼고 충돌을 명시한다.
 
 ## Tool usage
-- graphify (`graphify-out/`가 있을 때) — 위키 트랙. `graphify query`/`explain`으로 기존 위키 페이지 탐색, `graphify path "<A>" "<B>"`로 관계 확인. 없으면 `wiki/index.md`를 읽어 드릴다운.
+- `/wiki-query` — 위키 트랙. `/wiki-query "<주제/질문>"`로 기존 위키 페이지를 검색해 출처와 함께 답을 받는다(index 드릴다운은 스킬이 처리).
 - `WebSearch` / `WebFetch` — 문서 트랙. 문서 리서치가 필요할 때 조사(공식 출처 우선).
 - CodeGraph — 코드 트랙. MCP `codegraph_explore` 우선, 없으면 shell `codegraph explore`, 둘 다 없으면 Grep/Find.
 - context7 `resolve-library-id` → `query-docs` — 외부 의존 라이브러리/프레임워크 문서.

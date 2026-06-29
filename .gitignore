@@ -10,3 +10,6 @@ graphify-out/
 # omc state files
 .omc/
 .olw/
+
+# CodeGraph build outputs
+resource/.codegraph/

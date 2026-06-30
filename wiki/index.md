@@ -6,6 +6,7 @@
 ## Concepts
 <!-- wiki/concepts/ — 프로토콜 개념/메커니즘 -->
 - [op-node P2P Peering & Chain Isolation](concepts/op-node-p2p-peering.md) — discv5·ENR opstack chainID·gossip 토픽·게이팅으로 Optimism 노드만 격리하는 메커니즘과 inbound 하드 제한 방법
+- [op-node l1.rpckind & L1 Receipts Fetching 최적화](concepts/op-node-l1-rpckind-receipts.md) — --l1.rpckind가 L1 RPC 공급자 힌트로 영수증 조회 메서드를 비용 최적 선택·강등·복구하는 메커니즘과 alchemy 설정 효과
 
 ## Contracts
 <!-- wiki/contracts/ — 온체인 스마트 컨트랙트 -->

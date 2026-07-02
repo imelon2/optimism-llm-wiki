@@ -30,6 +30,7 @@ from dataclasses import dataclass, field
 KNOWN_TAGS = {
     "op-stack", "bridge", "fault-proofs", "derivation", "batcher", "proposer",
     "sequencer", "withdrawals", "deposits", "governance", "da", "p2p", "reth", "l1", "l2", "rfc",
+    "observability", "monitoring", "sre",
 }
 VALID_TYPES = {"Concept", "Contract", "Component", "Spec", "Runbook", "RFC"}
 OKF_FIELDS = ("type", "title", "description", "resource", "tags", "timestamp")

@@ -54,7 +54,7 @@ source_commit: <git-sha>       # 요약 시점의 resource submodule HEAD (stale
 ## tags
 
 `op-stack`을 기본 포함. 도메인 축:
-`bridge`, `fault-proofs`, `derivation`, `batcher`, `proposer`, `sequencer`, `withdrawals`, `deposits`, `governance`, `da`(data availability), `p2p`(networking), `reth`(EL client), `l1`, `l2`, `rfc`.
+`bridge`, `fault-proofs`, `derivation`, `batcher`, `proposer`, `sequencer`, `withdrawals`, `deposits`, `governance`, `da`(data availability), `p2p`(networking), `reth`(EL client), `l1`, `l2`, `rfc`, `observability`, `monitoring`, `sre`.
 분류체계는 등장 빈도에 따라 확장된다.
 
 ## 교차링크

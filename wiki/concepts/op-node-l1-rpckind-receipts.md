@@ -115,4 +115,5 @@ Alchemy 특이 처리: 응답이 배열이 아니라 `{"receipts":[...]}` 객체
 
 ## 관련 페이지
 
+- [OP Stack 노드 ↔ Grafana 관측성(LGTM) 연동 현황](observability-grafana-integration.md) — 본 옵션의 자동 강등/복구는 op-node 메트릭·로그로 관측되며, 관측성 4축(메트릭·로그·프로파일·트레이스) 지원 현황을 다룬다.
 - (아직 없음) 향후 `op-node` Component 페이지가 생기면 본 L1 RPC 옵션을 교차링크한다. L1 클라이언트(`op-service/sources/l1_client.go`)·EthClient 설정 관련 Concept 페이지가 추가되면 데이터 흐름을 연결한다.

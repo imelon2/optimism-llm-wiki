@@ -4,6 +4,7 @@
 > 형식: `## [YYYY-MM-DD] <op> | <대상>` (op = ingest | query | lint)
 > (예약 파일 — concept 문서로 쓰지 않음)
 
+## [2026-07-03] ingest | op-reth "Changeset cache MISS" 로그 진단 + op-stack Engine API 블록 빌드 유발 경로(2026-05-22 대규모 사례 제외) → runbooks/op-reth-changeset-cache-miss.md (신규), runbooks/op-reth-discv5-bootnode-timeout.md·concepts/observability-grafana-integration.md (교차링크)
 ## [2026-07-02] ingest | OP Stack 노드 ↔ Grafana 관측성(LGTM) 연동 조사(트레이스 미지원 + pprof→Pyroscope + SRE 가치) → concepts/observability-grafana-integration.md (신규), concepts/op-node-l1-rpckind-receipts.md·concepts/op-node-p2p-peering.md (교차링크)
 ## [2026-06-30] ingest | op-node l1.rpckind 옵션 분석(receipts fetching 최적화 + alchemy 예시) → concepts/op-node-l1-rpckind-receipts.md (신규)
 ## [2026-06-29] ingest | op-reth discv5 부트노드 Timeout 조사 → runbooks/op-reth-discv5-bootnode-timeout.md (신규), concepts/op-node-p2p-peering.md (교차링크)

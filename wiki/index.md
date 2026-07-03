@@ -24,3 +24,4 @@ _아직 없음_
 ## Runbooks
 <!-- wiki/runbooks/ — 운영 절차/인시던트 대응 -->
 - [op-reth discv5 Bootnode Timeout 진단](runbooks/op-reth-discv5-bootnode-timeout.md) — enode 부트노드가 `failed adding boot node ... err=Timeout`으로 실패하는 원인(enode→ENR 라이브 요청)과 해결(ENR 사용·포트·UDP 점검)
+- [op-reth "Changeset cache MISS" 로그 진단 및 op-stack 유발 경로](runbooks/op-reth-changeset-cache-miss.md) — 무해·자가복구 WARN이 op-node의 FCU-with-attributes 블록 빌드에서 유발되는 경로(parent=X↔unsafe 헤드 매핑, finalized→evict 임계)와 진단 체크리스트

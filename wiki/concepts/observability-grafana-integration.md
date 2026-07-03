@@ -105,4 +105,5 @@ pyroscope.scrape "op_stack" {
 
 - [op-node l1.rpckind & L1 Receipts Fetching 최적화](op-node-l1-rpckind-receipts.md) — op-node 운영 튜닝의 다른 축(L1 RPC 비용 최적화). 본 페이지는 그 op-node를 **관측·프로파일링하는 관점**을 다룬다.
 - [op-node P2P Peering & Chain Isolation](op-node-p2p-peering.md) — op-node P2P 운영. 관측성 축에서 P2P 관련 메트릭(`opp2p_*`)·프로파일로 피어링 이상을 진단할 수 있다.
+- [op-reth "Changeset cache MISS" 로그 진단](../runbooks/op-reth-changeset-cache-miss.md) — 로그 축(Loki) 진단 사례. op-reth WARN 로그를 op-node Engine API 블록 빌드와 상관분석한다.
 - 외부: [Grafana Pyroscope — Go pull mode](https://grafana.com/docs/pyroscope/latest/configure-client/grafana-alloy/go_pull/), [Alloy `pyroscope.scrape`](https://grafana.com/docs/alloy/latest/reference/components/pyroscope/pyroscope.scrape/), [Optimism Node Metrics](https://docs.optimism.io/builders/node-operators/management/metrics)

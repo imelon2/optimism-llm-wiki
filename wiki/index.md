@@ -25,3 +25,4 @@ _아직 없음_
 <!-- wiki/runbooks/ — 운영 절차/인시던트 대응 -->
 - [op-reth discv5 Bootnode Timeout 진단](runbooks/op-reth-discv5-bootnode-timeout.md) — enode 부트노드가 `failed adding boot node ... err=Timeout`으로 실패하는 원인(enode→ENR 라이브 요청)과 해결(ENR 사용·포트·UDP 점검)
 - [op-reth "Changeset cache MISS" 로그 진단 및 op-stack 유발 경로](runbooks/op-reth-changeset-cache-miss.md) — 무해·자가복구 WARN이 op-node의 FCU-with-attributes 블록 빌드에서 유발되는 경로(parent=X↔unsafe 헤드 매핑, finalized→evict 임계)와 진단 체크리스트
+- [op-node "failed to fetch receipts ... for L1 sysCfg update" 진단 (RPC 타임아웃 / 연결 리셋)](runbooks/op-node-fetch-receipts-context-deadline.md) — L1 origin 전진 시 receipts 조회가 L1 RPC 실패(timeout / connection reset)로 시퀀서가 백오프하는 로그의 인과 사슬·일시적/자가복구 판정·단일 이벤트 루프 블로킹이 블록 생산을 멈추는 메커니즘(연속 실패 지수 백오프 타임라인)·원인 후보·진단 절차

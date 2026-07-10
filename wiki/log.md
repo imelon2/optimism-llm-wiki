@@ -4,6 +4,7 @@
 > 형식: `## [YYYY-MM-DD] <op> | <대상>` (op = ingest | query | lint)
 > (예약 파일 — concept 문서로 쓰지 않음)
 
+## [2026-07-10] ingest | op-node --verifier.l1-confs vs --sequencer.l1-confs 차이 분석(동일 confDepth 안전거리 메커니즘을 각각 derivation 파이프라인/sequencer L1 origin 선택에 주입, 기본값 verifier=0·sequencer=4, depth=0=안전거리없음, sequencer depth 과다 시 MaxSequencerDrift/SeqWindowSize 초과로 deposit-only 블록 위험) → concepts/op-node-l1-confs-conf-depth.md (신규), runbooks/op-node-fetch-receipts-context-deadline.md (교차링크)
 ## [2026-07-06] ingest | OP Stack maxFeePerGas/maxPriorityFeePerGas 리서치(두 필드=L2 실행비 한정 effectiveGasPrice=min(maxFeePerGas, baseFee+maxPriorityFeePerGas), base fee 소각 대신 BaseFeeVault 적립, EIP-1559 파라미터 Holocene 이후 SystemConfig 설정, L1 data fee Bedrock/Ecotone/Fjord 진화, --min-suggested-priority-fee 추천 하한 기본 1,000,000 wei) → concepts/op-stack-eip1559-fees.md (신규), concepts/op-reth-txpool-nolocals.md (교차링크)
 ## [2026-07-06] ingest | op-reth --txpool.nolocals 옵션 분석(local tx slot/price/eviction 3종 면제 비활성화, is_local() 로직에서 no_exemptions가 --txpool.locals보다 우선, exemption과 propagation 분리, OP sequencer 실효성) → concepts/op-reth-txpool-nolocals.md (신규), concepts/observability-grafana-integration.md (교차링크)
 ## [2026-07-06] ingest | op-reth OTLP 관측성 옵션(--tracing-otlp*/--logs-otlp*) 분석 — 트레이스/로그 OTLP 네이티브 export, otlp/otlp-logs feature 게이팅, 플래그별 정본(reth v2.3.0 trace.rs) → concepts/observability-grafana-integration.md (보강: §1-a op-reth 예외 섹션·4축 표·인과 한계·근거·외부링크)

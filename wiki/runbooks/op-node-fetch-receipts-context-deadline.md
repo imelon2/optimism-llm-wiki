@@ -176,5 +176,6 @@ if cfg.batchCallTimeout == 0 {
 ## 관련 페이지
 
 - [op-node l1.rpckind & L1 Receipts Fetching 최적화](../concepts/op-node-l1-rpckind-receipts.md) — 본 타임아웃의 원인 후보 2(느린 조회 경로)의 배경. receipts 조회 메서드 선택·강등·복구 메커니즘과 `--l1.rpckind` kind별 권장.
+- [op-node --verifier.l1-confs vs --sequencer.l1-confs (L1 Confirmation Depth)](../concepts/op-node-l1-confs-conf-depth.md) — 본 런북이 다루는 "sequencer의 L1 origin 전진"을 게이팅하는 설정. `--sequencer.l1-confs`(기본 4)가 origin을 L1 head에서 얼마나 뒤로 유지할지 정하며, origin 전진 시점에 이 receipts 조회가 일어난다.
 - [op-reth "Changeset cache MISS" 로그 진단 및 op-stack 유발 경로](op-reth-changeset-cache-miss.md) — 시퀀서 블록 빌드 사이클의 EL 측 로그 진단. 본 페이지(L1 origin 전진의 CL 측)와 **시퀀서 로그 진단 런북 계열**을 공유한다.
 - [OP Stack 노드 ↔ Grafana 관측성(LGTM) 연동 현황](../concepts/observability-grafana-integration.md) — 이 ERROR는 관측성 4축 중 **로그 축(Loki)**으로 수집·상관분석하는 대상이다.

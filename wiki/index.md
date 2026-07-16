@@ -11,6 +11,7 @@
 - [op-reth --txpool.nolocals & Local Transaction Exemption](concepts/op-reth-txpool-nolocals.md) — local tx의 slot/price/eviction 3종 면제를 꺼 모든 tx를 remote와 동일 취급하게 하는 boolean 플래그, is_local() 로직에서 nolocals가 --txpool.locals보다 우선, OP sequencer 맥락의 실효성
 - [OP Stack 트랜잭션 수수료 & EIP-1559 (maxFeePerGas / maxPriorityFeePerGas)](concepts/op-stack-eip1559-fees.md) — 두 필드가 L2 실행비만 지배(effectiveGasPrice=min(maxFeePerGas, baseFee+maxPriorityFeePerGas))하고 L1 data fee는 별도 부과, base fee가 소각 대신 BaseFeeVault 적립, EIP-1559 파라미터의 Holocene 이후 SystemConfig 설정, min-suggested-priority-fee 추천 하한
 - [op-node --verifier.l1-confs vs --sequencer.l1-confs (L1 Confirmation Depth)](concepts/op-node-l1-confs-conf-depth.md) — 동일한 confDepth 안전거리(L1 head 기준 최근 N블록을 NotFound로 숨김)를 각각 derivation 파이프라인과 sequencer의 L1 origin 선택에 적용, 기본값 verifier=0/sequencer=4가 다른 이유, sequencer depth 과다 시 deposit-only 블록 위험
+- [op-node 동기화 모드(CLSync/ELSync) & ReqResp P2P Sync Deprecation](concepts/op-node-syncmode-reqresp-deprecation.md) — --syncmode consensus-layer/execution-layer 차이(op-node 주도 순차 실행 vs op-reth 주도 snap sync)와 CL 레벨 ReqResp sync 클라이언트 제거(deprecated no-op 플래그), gap 복구가 op-reth EL snap sync로 대체된 변화, op-reth의 post-finalization EL sync 이점(--l2.enginekind=reth), 남은 서버·rate limit
 
 ## Contracts
 <!-- wiki/contracts/ — 온체인 스마트 컨트랙트 -->

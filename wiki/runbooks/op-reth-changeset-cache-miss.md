@@ -123,3 +123,4 @@ WARN Changeset cache MISS ... block_number=3103858
 
 - [op-reth discv5 Bootnode Timeout 진단](op-reth-discv5-bootnode-timeout.md) — 또 다른 op-reth 로그 진단(기동 시 부트노드 Timeout). 본 페이지와 **op-reth 로그 해석 런북 계열**을 공유한다.
 - [OP Stack 노드 ↔ Grafana 관측성(LGTM) 연동 현황](../concepts/observability-grafana-integration.md) — 이 WARN은 관측성 4축 중 **로그 축(Loki)**으로 수집·상관분석하는 대상이다.
+- [op-node 동기화 모드(CLSync/ELSync) & ReqResp P2P Sync Deprecation](../concepts/op-node-syncmode-reqresp-deprecation.md) — 본 페이지의 FCU-with-attributes 블록 빌드와 같은 engine API `forkchoiceUpdated` 경로가, EL sync에서는 op-node가 op-reth에 target head를 지정해 snap sync를 유도하는 데 쓰인다.

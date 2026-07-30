@@ -173,6 +173,7 @@ gas oracle이 최근 블록 tip을 관찰해 추천값을 계산하되, 결과�
 ## 관련 페이지
 
 - [op-reth --txpool.nolocals & Local Transaction Exemption](op-reth-txpool-nolocals.md) — 이 페이지의 "priority fee 추천 하한"과 대비되는 txpool의 **강제** price 면제/하한 계층. local tx가 최소 수수료 기준을 우회하는 메커니즘.
+- [reth/op-reth txpool 용량 한도 & 계정 슬롯 제한 (-32003 "txpool is full")](reth-txpool-capacity-slot-limits.md) — 수수료가 **낮아서 생기는 결과**. 풀이 한도를 넘으면 가장 싼 tx가 축출되어(`DiscardedOnInsert`) `-32003`으로 거절되므로, priority fee 책정이 곧 mempool 생존율을 결정한다.
 - [OP Stack 노드 ↔ Grafana 관측성(LGTM) 연동 현황](observability-grafana-integration.md) — 동일 op-reth 클라이언트의 다른 운영 설정 계열.
 
 ## 출처

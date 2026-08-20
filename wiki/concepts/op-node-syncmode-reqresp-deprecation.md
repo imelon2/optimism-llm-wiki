@@ -116,5 +116,6 @@ func (kind Kind) SupportsPostFinalizationELSync() bool {
 ## 관련 페이지
 
 - [op-node P2P Peering & Chain Isolation](op-node-p2p-peering.md) — 본 페이지의 ReqResp 프로토콜 ID(`/opstack/req/payload_by_number/<chainID>/0`)가 등장하는 곳. 그 페이지는 P2P 피어링·chainID 격리를, 본 페이지는 그 위에서 도는 sync 클라이언트/서버의 제거·대체를 다룬다.
+- [op-reth --max-outbound-peers & devp2p 피어 슬롯 제어](op-reth-max-outbound-peers.md) — 본 페이지의 전제인 "op-reth가 peer를 정상적으로 물고 있을 것"을 좌우하는 EL 피어 슬롯 상한. gap 복구가 EL snap sync로 옮겨간 이상 outbound 피어 수가 동기화 속도에 **직접** 영향을 준다.
 - [op-reth "Changeset cache MISS" 로그 진단 및 op-stack 유발 경로](../runbooks/op-reth-changeset-cache-miss.md) — 본 페이지의 EL sync는 op-node가 op-reth에 보내는 engine API `forkchoiceUpdated`로 유도된다. 그 Runbook은 FCU-with-attributes 블록 빌드 경로를 다룬다.
 - (아직 없음) 향후 `op-node` Component 페이지, derivation/gossip Concept 페이지가 생기면 교차링크한다.

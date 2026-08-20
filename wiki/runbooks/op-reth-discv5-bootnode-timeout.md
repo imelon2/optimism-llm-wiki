@@ -81,6 +81,8 @@ BootNode::Enode(enode)  => { discv5.request_enr(enode.to_string()).await } // �
 
 - [op-reth "Changeset cache MISS" 로그 진단 및 op-stack 유발 경로](op-reth-changeset-cache-miss.md) — 또 다른 op-reth 로그 진단 런북. 본 페이지(기동 시 부트노드 Timeout)와 **op-reth 로그 해석 계열**을 공유한다.
 
+- [op-reth --max-outbound-peers & devp2p 피어 슬롯 제어](../concepts/op-reth-max-outbound-peers.md) — 본 Runbook의 discovery는 그 페이지가 다루는 **outbound 슬롯을 채울 후보 피어를 공급**하는 단계다. 부트노드가 전부 실패하면 `--max-outbound-peers`를 아무리 올려도 outbound 연결은 차오르지 않는다.
+
 - [op-node P2P Peering & Chain Isolation](../concepts/op-node-p2p-peering.md) — op-node(CL) 측 discv5 discovery·ENR `opstack` chainID 필터. 본 Runbook은 그 EL(reth) 대응으로, **discv5/enode/ENR 개념을 공유**한다.
 
 ## 출처

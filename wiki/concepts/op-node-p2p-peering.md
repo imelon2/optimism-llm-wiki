@@ -76,6 +76,7 @@ op-node는 외부 노드와 실제로 피어링하기 전에 세 단계에서 �
 
 ## 관련 페이지
 
+- [op-reth --max-outbound-peers & devp2p 피어 슬롯 제어](op-reth-max-outbound-peers.md) — EL(op-reth) 측 피어 슬롯 제어. 본 페이지의 op-node(CL) libp2p 피어링과 **별개 네트워크**이며, 본 페이지가 "누구와 연결되는가(체인 격리)"를 다룬다면 그 페이지는 "몇 개까지 연결되는가(outbound/inbound 상한)"를 다룬다.
 - [op-reth discv5 Bootnode Timeout 진단](../runbooks/op-reth-discv5-bootnode-timeout.md) — EL(reth) 측 discv5 부트노드 운영 이슈. 본 페이지의 op-node(CL) discovery와 **discv5/enode/ENR 개념을 공유**하며, enode 부트노드의 `request_enr` Timeout 진단을 다룬다.
 - [OP Stack 노드 ↔ Grafana 관측성(LGTM) 연동 현황](observability-grafana-integration.md) — 본 페이지의 P2P 피어링 이상은 op-node 메트릭(`opp2p_*`)·프로파일로 진단할 수 있으며, 관측성 4축 지원 현황을 다룬다.
 - [op-node 동기화 모드(CLSync/ELSync) & ReqResp P2P Sync Deprecation](op-node-syncmode-reqresp-deprecation.md) — 본 페이지에서 언급한 req-resp 프로토콜(`/opstack/req/payload_by_number/<chainID>/0`)의 **클라이언트가 제거**되어 gap 복구가 op-reth EL snap sync로 넘어간 변화와 `--syncmode` 차이를 다룬다.

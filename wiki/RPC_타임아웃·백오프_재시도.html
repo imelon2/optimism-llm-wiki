@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RPC 타임아웃·백오프 재시도</title>
+<style>
+:root { color-scheme: dark; }
+body { margin:0; background:#0f0f1a; color:#d8d8e0;
+  font:15px/1.75 -apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 20px 80px; }
+nav.top { position:sticky; top:0; background:#0f0f1aee; border-bottom:1px solid #2a2a4e;
+  padding:10px 20px; font-size:13px; backdrop-filter:blur(6px); }
+nav.top a { color:#8ab4dd; text-decoration:none; margin-right:14px; }
+nav.top a:hover { text-decoration:underline; }
+h1,h2,h3 { color:#f0f0f5; line-height:1.35; margin:1.6em 0 .6em; }
+h1 { font-size:1.7em; margin-top:.4em; } h2 { font-size:1.3em; } h3 { font-size:1.1em; }
+a { color:#8ab4dd; }
+code { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:4px;
+  padding:1px 5px; font-size:.9em; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+pre { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:8px;
+  padding:12px 14px; overflow-x:auto; }
+pre code { background:none; border:none; padding:0; }
+blockquote { margin:1em 0; padding:.4em 1em; border-left:3px solid #4E79A7;
+  background:#16162a; color:#aaa; }
+hr { border:none; border-top:1px solid #2a2a4e; margin:2em 0; }
+table { border-collapse:collapse; width:100%; display:block; overflow-x:auto; }
+th,td { border:1px solid #2a2a4e; padding:6px 10px; text-align:left; }
+th { background:#1a1a2e; }
+ul,ol { padding-left:1.4em; }
+li { margin:.25em 0; }
+</style>
+</head><body>
+<nav class="top"><a href="../index.html">← Graph</a><a href="../wiki/index.html">Wiki</a><a href="../report.html">Report</a></nav>
+<div class="wrap">
+<h1>RPC 타임아웃·백오프 재시도</h1>
+<blockquote>9 nodes · cohesion 0.22</blockquote>
+<h2>Key Concepts</h2>
+<ul>
+<li><strong>L1Traversal.AdvanceL1Block — L1 origin 전진 시 receipts 조회 지점</strong> (4 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>TemporaryError 래핑 &amp; 시퀀서 백오프 (origin 미전진·자가복구)</strong> (3 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>지수 백오프 재시도와 회복 창 (min(2^n×1s,10s)+jitter, 대기 중 루프 해제)</strong> (2 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>GlobalSynchronous 단일 이벤트 루프 (동기 블로킹 RPC가 블록 생산을 멈춤)</strong> (2 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>forward_raw_transaction / _conditional — request()의 유일한 호출자 2곳</strong> (2 connections) — <code>runbooks/op-reth-sequencer-forward-txpool-full.md</code></li>
+<li><strong>포워딩 실패 시 <code>?</code> 조기반환 — 재시도 없음·로컬 풀 미보관(tx 유실)</strong> (2 connections) — <code>runbooks/op-reth-sequencer-forward-txpool-full.md</code></li>
+<li><strong>SequencerClient::request — "HTTP request to sequencer failed" WARN 발생 지점</strong> (2 connections) — <code>runbooks/op-reth-sequencer-forward-txpool-full.md</code></li>
+<li><strong>L1 RPC 클라이언트 호출 타임아웃 기본값 (callTimeout 10s / batchCallTimeout 20s)</strong> (1 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>UpdateSystemConfigWithL1Receipts — L1 ConfigUpdate 이벤트 스캔·SystemConfig 갱신</strong> (1 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+</ul>
+<h2>Relationships</h2>
+<ul>
+<li><a href="Wiki_%EC%9D%B8%EB%8D%B1%EC%8A%A4_%ED%97%88%EB%B8%8C.html">Wiki 인덱스 허브</a> (2 shared connections)</li>
+<li><a href="txpool_full_%EC%9B%90%EC%9D%B8_%ED%8C%90%EB%B3%84.html">txpool full 원인 판별</a> (1 shared connections)</li>
+</ul>
+<h2>Source Files</h2>
+<ul>
+<li><code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><code>runbooks/op-reth-sequencer-forward-txpool-full.md</code></li>
+</ul>
+<h2>Audit Trail</h2>
+<ul>
+<li>EXTRACTED: 17 (89%)</li>
+<li>INFERRED: 2 (11%)</li>
+<li>AMBIGUOUS: 0 (0%)</li>
+</ul>
+<hr>
+<p><em>Part of the graphify knowledge wiki. See <a href="index.html">index</a> to navigate.</em></p>
+</div>
+</body></html>

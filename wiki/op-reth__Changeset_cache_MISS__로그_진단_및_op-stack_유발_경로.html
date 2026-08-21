@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>op-reth &quot;Changeset cache MISS&quot; 로그 진단 및 op-stack 유발 경로</title>
+<style>
+:root { color-scheme: dark; }
+body { margin:0; background:#0f0f1a; color:#d8d8e0;
+  font:15px/1.75 -apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 20px 80px; }
+nav.top { position:sticky; top:0; background:#0f0f1aee; border-bottom:1px solid #2a2a4e;
+  padding:10px 20px; font-size:13px; backdrop-filter:blur(6px); }
+nav.top a { color:#8ab4dd; text-decoration:none; margin-right:14px; }
+nav.top a:hover { text-decoration:underline; }
+h1,h2,h3 { color:#f0f0f5; line-height:1.35; margin:1.6em 0 .6em; }
+h1 { font-size:1.7em; margin-top:.4em; } h2 { font-size:1.3em; } h3 { font-size:1.1em; }
+a { color:#8ab4dd; }
+code { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:4px;
+  padding:1px 5px; font-size:.9em; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+pre { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:8px;
+  padding:12px 14px; overflow-x:auto; }
+pre code { background:none; border:none; padding:0; }
+blockquote { margin:1em 0; padding:.4em 1em; border-left:3px solid #4E79A7;
+  background:#16162a; color:#aaa; }
+hr { border:none; border-top:1px solid #2a2a4e; margin:2em 0; }
+table { border-collapse:collapse; width:100%; display:block; overflow-x:auto; }
+th,td { border:1px solid #2a2a4e; padding:6px 10px; text-align:left; }
+th { background:#1a1a2e; }
+ul,ol { padding-left:1.4em; }
+li { margin:.25em 0; }
+</style>
+</head><body>
+<nav class="top"><a href="../index.html">← Graph</a><a href="../wiki/index.html">Wiki</a><a href="../report.html">Report</a></nav>
+<div class="wrap">
+<h1>op-reth "Changeset cache MISS" 로그 진단 및 op-stack 유발 경로</h1>
+<blockquote>God node · 10 connections · <code>runbooks/op-reth-changeset-cache-miss.md</code></blockquote>
+<p><strong>Community:</strong> <a href="%EB%8F%99%EA%B8%B0%ED%99%94%C2%B7Engine_API_%EB%B9%8C%EB%93%9C_%EC%82%AC%EC%9D%B4%ED%81%B4.html">동기화·Engine API 빌드 사이클</a></p>
+<h2>Connections by Relation</h2>
+<h3>rationale_for</h3>
+<ul>
+<li>op-node 스톨 = 방아쇠가 아닌 MISS 버스트 증폭기 <code>EXTRACTED</code></li>
+</ul>
+<h3>references</h3>
+<ul>
+<li><a href="Wiki_Log_%28append-only_%EB%B3%80%EA%B2%BD_%EC%9D%B4%EB%A0%A5%29.html">Wiki Log (append-only 변경 이력)</a> <code>EXTRACTED</code></li>
+<li><a href="Wiki_Index_%28OP_Stack_LLM_Wiki_%EC%A0%84%EC%B2%B4_%EC%B9%B4%ED%83%88%EB%A1%9C%EA%B7%B8%29.html">Wiki Index (OP Stack LLM Wiki 전체 카탈로그)</a> <code>EXTRACTED</code></li>
+<li><a href="OP_Stack_%EB%85%B8%EB%93%9C_%E2%86%94_Grafana_LGTM_%EA%B4%80%EC%B8%A1%EC%84%B1_%EC%97%B0%EB%8F%99.html">OP Stack 노드 ↔ Grafana LGTM 관측성 연동</a> <code>EXTRACTED</code></li>
+<li><a href="op-reth__HTTP_request_to_sequencer_failed_..._-32003-_txpool_is_full__%EC%A7%84%EB%8B%A8.html">op-reth "HTTP request to sequencer failed ... -32003: txpool is full" 진단</a> <code>EXTRACTED</code></li>
+<li><a href="op-node_--syncmode_%28CLSync-ELSync%29.html">op-node --syncmode (CLSync/ELSync)</a> <code>EXTRACTED</code></li>
+<li>op-node "failed to fetch receipts ... for L1 sysCfg update" 진단 <code>EXTRACTED</code></li>
+<li>op-reth discv5 Bootnode Timeout 진단 <code>EXTRACTED</code></li>
+<li>Engine API 블록 빌드 사이클 (FCU-with-attributes → getPayload → newPayload → FCU) <code>EXTRACTED</code></li>
+<li>부모 상태 overlay 조회 (state_by_block_hash) → changeset MISS → DB 폴백 <code>EXTRACTED</code></li>
+</ul>
+<hr>
+<p><em>Part of the graphify knowledge wiki. See <a href="index.html">index</a> to navigate.</em></p>
+</div>
+</body></html>

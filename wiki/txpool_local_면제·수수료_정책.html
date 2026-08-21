@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>txpool local 면제·수수료 정책</title>
+<style>
+:root { color-scheme: dark; }
+body { margin:0; background:#0f0f1a; color:#d8d8e0;
+  font:15px/1.75 -apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 20px 80px; }
+nav.top { position:sticky; top:0; background:#0f0f1aee; border-bottom:1px solid #2a2a4e;
+  padding:10px 20px; font-size:13px; backdrop-filter:blur(6px); }
+nav.top a { color:#8ab4dd; text-decoration:none; margin-right:14px; }
+nav.top a:hover { text-decoration:underline; }
+h1,h2,h3 { color:#f0f0f5; line-height:1.35; margin:1.6em 0 .6em; }
+h1 { font-size:1.7em; margin-top:.4em; } h2 { font-size:1.3em; } h3 { font-size:1.1em; }
+a { color:#8ab4dd; }
+code { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:4px;
+  padding:1px 5px; font-size:.9em; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+pre { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:8px;
+  padding:12px 14px; overflow-x:auto; }
+pre code { background:none; border:none; padding:0; }
+blockquote { margin:1em 0; padding:.4em 1em; border-left:3px solid #4E79A7;
+  background:#16162a; color:#aaa; }
+hr { border:none; border-top:1px solid #2a2a4e; margin:2em 0; }
+table { border-collapse:collapse; width:100%; display:block; overflow-x:auto; }
+th,td { border:1px solid #2a2a4e; padding:6px 10px; text-align:left; }
+th { background:#1a1a2e; }
+ul,ol { padding-left:1.4em; }
+li { margin:.25em 0; }
+</style>
+</head><body>
+<nav class="top"><a href="../index.html">← Graph</a><a href="../wiki/index.html">Wiki</a><a href="../report.html">Report</a></nav>
+<div class="wrap">
+<h1>txpool local 면제·수수료 정책</h1>
+<blockquote>18 nodes · cohesion 0.12</blockquote>
+<h2>Key Concepts</h2>
+<ul>
+<li><strong>LocalTransactionConfig::is_local (nolocals가 locals보다 우선)</strong> (4 connections) — <code>concepts/op-reth-txpool-nolocals.md</code></li>
+<li><strong>local 트랜잭션 면제 3종 (slot / price / eviction)</strong> (4 connections) — <code>concepts/op-reth-txpool-nolocals.md</code></li>
+<li><strong>effectiveGasPrice = min(maxFeePerGas, baseFee + maxPriorityFeePerGas)</strong> (4 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>max_account_slots (기본 16, in-flight 미래 nonce 깊이 제한)</strong> (4 connections) — <code>concepts/reth-txpool-capacity-slot-limits.md</code></li>
+<li><strong>RpcPoolError::TxPoolOverflow 매핑 (두 PoolErrorKind → -32003)</strong> (4 connections) — <code>concepts/reth-txpool-capacity-slot-limits.md</code></li>
+<li><strong>PoolErrorKind::SpammerExceededCapacity (계정 슬롯 초과)</strong> (4 connections) — <code>concepts/reth-txpool-capacity-slot-limits.md</code></li>
+<li><strong>LocalTransactionConfig (no_exemptions / local_addresses / propagate)</strong> (3 connections) — <code>concepts/op-reth-txpool-nolocals.md</code></li>
+<li><strong>--min-suggested-priority-fee (RPC 추천 하한, mempool 강제 아님)</strong> (3 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>eth_sendRawTransaction은 TransactionOrigin::External (local 아님)</strong> (2 connections) — <code>concepts/op-reth-txpool-nolocals.md</code></li>
+<li><strong>Fee Vault 3종 (BaseFeeVault / SequencerFeeVault / L1FeeVault)</strong> (2 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>서브풀 4종 용량 한도 (기본 10,000 tx / 20MB, PoolConfig::is_exceeded)</strong> (2 connections) — <code>concepts/reth-txpool-capacity-slot-limits.md</code></li>
+<li><strong>eviction 면제는 pending 서브풀에서만 — parked는 보호 없음</strong> (1 connections) — <code>concepts/op-reth-txpool-nolocals.md</code></li>
+<li><strong>--txpool.locals (주소 기반 local 지정)</strong> (1 connections) — <code>concepts/op-reth-txpool-nolocals.md</code></li>
+<li><strong>OP의 base fee는 소각되지 않고 BaseFeeVault로 적립</strong> (1 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>Holocene 이후 체인별 EIP-1559 파라미터 (SystemConfig.setEIP1559Params / extraData)</strong> (1 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>-32003 vs -32000 클라이언트 지문 (reth 계열 특정)</strong> (1 connections) — <code>concepts/reth-txpool-capacity-slot-limits.md</code></li>
+<li><strong>geth AccountSlots(보장치) vs reth(거부 임계값) 의미 역전</strong> (1 connections) — <code>concepts/reth-txpool-capacity-slot-limits.md</code></li>
+<li><strong>reth/op-reth -32003 "txpool is full" (두 원인의 붕괴)</strong> (1 connections) — <code>concepts/reth-txpool-capacity-slot-limits.md</code></li>
+</ul>
+<h2>Relationships</h2>
+<ul>
+<li><a href="Wiki_%EC%9D%B8%EB%8D%B1%EC%8A%A4_%ED%97%88%EB%B8%8C.html">Wiki 인덱스 허브</a> (5 shared connections)</li>
+</ul>
+<h2>Source Files</h2>
+<ul>
+<li><code>concepts/op-reth-txpool-nolocals.md</code></li>
+<li><code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><code>concepts/reth-txpool-capacity-slot-limits.md</code></li>
+</ul>
+<h2>Audit Trail</h2>
+<ul>
+<li>EXTRACTED: 41 (95%)</li>
+<li>INFERRED: 2 (5%)</li>
+<li>AMBIGUOUS: 0 (0%)</li>
+</ul>
+<hr>
+<p><em>Part of the graphify knowledge wiki. See <a href="index.html">index</a> to navigate.</em></p>
+</div>
+</body></html>

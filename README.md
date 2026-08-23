@@ -108,6 +108,17 @@ Searches the wiki and answers with cited sources. Valuable syntheses are fed bac
 /wiki-query "How does the fault proof dispute game work?"
 ```
 
+## Change Wiki
+1. run update
+  ```
+  ./wiki --update --wiki
+  ```
+
+2) build gh-pages
+  ```
+  make deploy-graph
+  ```
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0 — see [LICENSE](LICENSE) for details.

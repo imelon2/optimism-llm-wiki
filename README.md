@@ -111,7 +111,7 @@ Searches the wiki and answers with cited sources. Valuable syntheses are fed bac
 ## Change Wiki
 1. run update
   ```
-  ./wiki --update --wiki
+  /graphify ./wiki --update --wiki
   ```
 
 2) build gh-pages

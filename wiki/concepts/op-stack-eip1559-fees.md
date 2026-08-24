@@ -172,6 +172,8 @@ gas oracle이 최근 블록 tip을 관찰해 추천값을 계산하되, 결과�
 
 ## 관련 페이지
 
+- [OP Stack L2 블록타임 설정 및 확인](op-stack-l2-block-time.md) — 본 페이지의 EIP-1559 파라미터가 **온체인 SystemConfig에 있는** 값인 데 반해, 블록타임은 온체인에 없는 오프체인 전용 파라미터라는 경계 비교.
+- [OP Stack 시퀀서 블록 생성 과정 (2초 사이클)](op-stack-block-production.md) — 블록 생성 3단계가 넣는 L1 info deposit이 본 페이지의 수수료 파라미터를 L2로 실어 나른다.
 - [op-reth --txpool.nolocals & Local Transaction Exemption](op-reth-txpool-nolocals.md) — 이 페이지의 "priority fee 추천 하한"과 대비되는 txpool의 **강제** price 면제/하한 계층. local tx가 최소 수수료 기준을 우회하는 메커니즘.
 - [reth/op-reth txpool 용량 한도 & 계정 슬롯 제한 (-32003 "txpool is full")](reth-txpool-capacity-slot-limits.md) — 수수료가 **낮아서 생기는 결과**. 풀이 한도를 넘으면 가장 싼 tx가 축출되어(`DiscardedOnInsert`) `-32003`으로 거절되므로, priority fee 책정이 곧 mempool 생존율을 결정한다.
 - [OP Stack 노드 ↔ Grafana 관측성(LGTM) 연동 현황](observability-grafana-integration.md) — 동일 op-reth 클라이언트의 다른 운영 설정 계열.

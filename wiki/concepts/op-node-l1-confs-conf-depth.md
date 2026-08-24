@@ -107,3 +107,6 @@ findL1Origin := sequencing.NewL1OriginSelector(driverCtx, log, cfg, sequencerCon
 
 - [op-node "failed to fetch receipts ... for L1 sysCfg update" 진단](../runbooks/op-node-fetch-receipts-context-deadline.md) — sequencer가 L1 origin을 **전진**시킬 때(본 페이지의 `--sequencer.l1-confs`가 게이팅하는 바로 그 동작) receipts 조회가 실패하며 백오프하는 런북. origin 전진의 실패 측면을 다룬다.
 - [op-node l1.rpckind & L1 Receipts Fetching 최적화](op-node-l1-rpckind-receipts.md) — 같은 op-node의 L1-facing 설정 계열. 이쪽은 L1 영수증 조회 방식, 본 페이지는 L1 head와의 안전거리.
+- [OP Stack 시퀀서 블록 생성 과정 (2초 사이클)](op-stack-block-production.md) — 본 페이지가 게이팅하는 origin 선택이 놓인 전체 블록 생성 사이클(2단계). `--sequencer.l1-confs` 과다 시 drift 초과로 deposit-only가 되는 경로의 상위 맥락.
+- [op-node FindL1Origin 무기한 대기로 인한 블록 생산 정지](../runbooks/op-node-find-l1-origin-stall.md) — conf depth가 과다해 다음 origin이 상시 `NotFound`로 보이면 origin 선캐싱이 매번 빗나가고, 그 결과 시퀀서가 매 블록 L1을 직접 조회하다 정지한다. 본 설정의 오설정이 만드는 장애.
+- [OP Stack L2 블록타임 설정 및 확인](op-stack-l2-block-time.md) — 함께 rollup config에만 존재하는 `MaxSequencerDrift`/`SeqWindowSize`와 같은 계열의 오프체인 파라미터.

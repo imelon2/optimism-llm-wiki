@@ -175,6 +175,9 @@ if cfg.batchCallTimeout == 0 {
 
 ## 관련 페이지
 
+- [op-node FindL1Origin 무기한 대기로 인한 블록 생산 정지](op-node-find-l1-origin-stall.md) — **자매 런북.** 같은 "L1 RPC 지연 → 단일 루프 잠김 → 블록 정지" 계열이지만 경로가 다르다. 본 페이지는 derivation 파이프라인(`l1_traversal.go:74` receipts 조회), 저쪽은 sequencing(`sequencer.go:556` origin 선택)이다. 로그 문자열로 먼저 분기한다 — `failed to fetch receipts ... for L1 sysCfg update`면 본 페이지, `Error finding next L1 Origin`이면 저쪽.
+- [op-node 단일 이벤트 루프 설계](../concepts/op-node-event-loop-design.md) — 본 페이지 "영향" 절의 근거를 확장한 페이지. 6단계 코드 근거 사슬, 설계가 의도된 것이라는 증거(미머지 `events-parallel` 브랜치), 그리고 **창구를 잠그는 백오프와 잠그지 않는 백오프의 구분**. 본 페이지가 쓰는 `retry.Exponential()`은 `step_scheduling_deriver.go:98`의 `time.After`라 논블로킹(회복 창)이지만, 리셋 경로의 `retry.Do`는 이벤트 루프 위에서 잠들어 창구를 잠근다.
+- [OP Stack 시퀀서 블록 생성 과정 (2초 사이클)](../concepts/op-stack-block-production.md) — 본 장애가 지연시키는 블록 생성 사이클의 전체 구조와 단계별 타임아웃 지도.
 - [op-node l1.rpckind & L1 Receipts Fetching 최적화](../concepts/op-node-l1-rpckind-receipts.md) — 본 타임아웃의 원인 후보 2(느린 조회 경로)의 배경. receipts 조회 메서드 선택·강등·복구 메커니즘과 `--l1.rpckind` kind별 권장.
 - [op-node --verifier.l1-confs vs --sequencer.l1-confs (L1 Confirmation Depth)](../concepts/op-node-l1-confs-conf-depth.md) — 본 런북이 다루는 "sequencer의 L1 origin 전진"을 게이팅하는 설정. `--sequencer.l1-confs`(기본 4)가 origin을 L1 head에서 얼마나 뒤로 유지할지 정하며, origin 전진 시점에 이 receipts 조회가 일어난다.
 - [op-reth "Changeset cache MISS" 로그 진단 및 op-stack 유발 경로](op-reth-changeset-cache-miss.md) — 시퀀서 블록 빌드 사이클의 EL 측 로그 진단. 본 페이지(L1 origin 전진의 CL 측)와 **시퀀서 로그 진단 런북 계열**을 공유한다.

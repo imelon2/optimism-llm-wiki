@@ -241,6 +241,8 @@ go-ethereum의 `ErrTxPoolOverflow`(`core/txpool/legacypool/legacypool.go:62`)는
 - [op-reth --txpool.nolocals & Local Transaction Exemption](op-reth-txpool-nolocals.md) — 이 페이지의 slot 체크 우회·eviction 보호를 **끄는** 플래그. 두 페이지는 같은 `LocalTransactionConfig`를 반대 방향에서 본다.
 - [op-reth "HTTP request to sequencer failed ... -32003: txpool is full" 진단](../runbooks/op-reth-sequencer-forward-txpool-full.md) — 이 메커니즘이 replica의 forwarding 실패 로그로 관측될 때의 진단 절차.
 - [OP Stack 트랜잭션 수수료 & EIP-1559 (maxFeePerGas / maxPriorityFeePerGas)](op-stack-eip1559-fees.md) — 원인 A(`DiscardedOnInsert`)는 사실상 underpriced 판정이므로, 축출을 피하려면 이 페이지의 priority fee 모델을 이해해야 한다.
+- [txpool nonce 갭으로 인한 트랜잭션 전파 정지](txpool-nonce-gap-propagation-stall.md) — 갭 때문에 queued에 쌓인 미래 nonce가 이 페이지의 **계정 슬롯을 소진**해 후속 제출이 `-32003`으로 거부되는 경로. 갭이 원인일 때는 슬롯 상향이 아니라 라우팅을 고쳐야 한다.
+- [OP Stack 트랜잭션 전파 경로 (Ingress → 시퀀서)](op-stack-tx-ingress-propagation.md) — Ingress 노드의 풀이 포화되면 트랜잭션이 **시퀀서 도달 전에 유실**된다. 이 페이지의 한도가 그 지점에서 걸린다.
 
 ## 출처
 

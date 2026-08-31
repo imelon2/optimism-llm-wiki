@@ -135,3 +135,5 @@ func (d *Sequencer) handleInvalid() {
 - [op-node --verifier.l1-confs vs --sequencer.l1-confs](op-node-l1-confs-conf-depth.md) — 2단계의 origin 후보를 confDepth로 게이팅하는 설정. `--sequencer.l1-confs` 과다 시 drift 초과로 deposit-only 블록이 나온다.
 - [OP Stack L2 블록타임 설정 및 확인](op-stack-l2-block-time.md) — 본 사이클의 주기를 정하는 `BlockTime` 파라미터.
 - [OP Stack 트랜잭션 수수료 & EIP-1559](op-stack-eip1559-fees.md) — 3단계가 넣는 L1 info deposit이 실어 나르는 수수료 파라미터의 소비처.
+- [OP Stack 트랜잭션 전파 경로 (Ingress → 시퀀서)](op-stack-tx-ingress-propagation.md) — 5단계에서 EL이 mempool에서 수집하는 사용자 트랜잭션이 **어떻게 시퀀서 풀까지 도달하는가**. 시퀀서는 빌드 중 원격 풀을 조회할 수 없으므로(`miner/worker.go:774`), 블록 빌드 시작 전에 풀에 들어와 있어야 한다.
+- [트랜잭션 `√n` 브로드캐스트 규칙](tx-propagation-sqrt-broadcast.md) — 전파 지연이 본 사이클의 **2초 블록타임 대비 얼마나 치명적인지**를 판단하는 기준. op-geth의 500ms 대기는 블록타임의 1/4에 해당한다.

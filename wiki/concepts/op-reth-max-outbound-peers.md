@@ -202,6 +202,8 @@ RPC로는 `admin_peers`, `net_peerCount`. 메트릭 수집 경로 전반은 [OP 
 - [op-node P2P Peering & Chain Isolation](op-node-p2p-peering.md) — CL(op-node) 측 libp2p 피어링·chainID 격리. 본 페이지의 EL(devp2p/RLPx) 피어 슬롯과 **완전히 다른 네트워크**이며, 두 레이어의 피어 수는 서로 독립적으로 관리된다.
 - [op-reth discv5 Bootnode Timeout 진단](../runbooks/op-reth-discv5-bootnode-timeout.md) — 본 페이지의 outbound 슬롯을 채울 **후보 피어를 공급하는 discovery** 단계. 부트노드가 실패하면 상한을 올려도 outbound가 차오르지 않는다.
 - [op-node 동기화 모드(CLSync/ELSync) & ReqResp P2P Sync Deprecation](op-node-syncmode-reqresp-deprecation.md) — gap 복구가 op-reth EL snap sync로 대체되면서 **EL 피어 수가 동기화 성능을 좌우**하게 된 배경.
+- [트랜잭션 `√n` 브로드캐스트 규칙 (원본 전송 vs 해시 알림)](tx-propagation-sqrt-broadcast.md) — 본 페이지가 정하는 **피어 수가 그대로 `√n`의 입력값**이 된다. 피어를 늘리면 슬롯은 늘지만 트랜잭션 원본을 받는 피어의 **비율은 떨어져** 전파 지연 확률이 올라간다. 두 페이지는 같은 변수를 반대편에서 본다.
+- [OP Stack 트랜잭션 전파 경로 (Ingress → 시퀀서)](op-stack-tx-ingress-propagation.md) — 본 페이지의 EL 피어 네트워크 위로 실제 트랜잭션이 흐르는 경로와 Ingress 아키텍처.
 - [OP Stack 노드 ↔ Grafana 관측성(LGTM) 연동 현황](observability-grafana-integration.md) — 본 페이지의 `network_*` 메트릭을 수집·시각화하는 경로.
 
 ## 출처

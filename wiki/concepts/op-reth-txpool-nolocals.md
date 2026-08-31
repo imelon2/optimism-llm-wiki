@@ -102,6 +102,8 @@ pub fn is_local(&self, origin: TransactionOrigin, sender: &Address) -> bool {
 - [OP Stack 트랜잭션 수수료 & EIP-1559 (maxFeePerGas / maxPriorityFeePerGas)](op-stack-eip1559-fees.md) — 여기의 price 면제(**강제** 최소 수수료/priority fee 하한)와 대비되는, `--min-suggested-priority-fee`의 RPC **추천** 하한 및 L2 실행비/ L1 data fee 전체 모델
 - [OP Stack 노드 ↔ Grafana 관측성(LGTM) 연동 현황](observability-grafana-integration.md) — op-reth의 다른 CLI 플래그 계열(--tracing-otlp/--logs-otlp) 참고
 - [op-reth "Changeset cache MISS" 로그 진단](../runbooks/op-reth-changeset-cache-miss.md) — 동일 op-reth 클라이언트 운영 진단
+- [OP Stack 트랜잭션 전파 경로 (Ingress → 시퀀서)](op-stack-tx-ingress-propagation.md) — ⚠️ 본 페이지의 "follower/replica는 sequencer로 forward하므로 nolocals 실효성이 제한적"이라는 서술은 **HTTP 포워딩 배치 기준**이다. Optimism 공식 권장인 **Tx Ingress 배치에서는 forward하지 않고 gossip**하므로 Ingress 노드의 풀이 실제 사용자 트랜잭션이 사는 곳이 되고, local 면제 설정의 실효성이 시퀀서와 동등해진다.
+- [txpool nonce 갭으로 인한 트랜잭션 전파 정지](txpool-nonce-gap-propagation-stall.md) — 본 페이지의 **eviction 면제가 pending 서브풀에서만 적용**된다는 비대칭이, 갭으로 queued에 머무는 트랜잭션에서 실제 문제로 드러나는 사례.
 
 ## 출처
 

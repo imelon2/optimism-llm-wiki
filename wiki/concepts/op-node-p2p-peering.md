@@ -80,4 +80,6 @@ op-node는 외부 노드와 실제로 피어링하기 전에 세 단계에서 �
 - [op-reth discv5 Bootnode Timeout 진단](../runbooks/op-reth-discv5-bootnode-timeout.md) — EL(reth) 측 discv5 부트노드 운영 이슈. 본 페이지의 op-node(CL) discovery와 **discv5/enode/ENR 개념을 공유**하며, enode 부트노드의 `request_enr` Timeout 진단을 다룬다.
 - [OP Stack 노드 ↔ Grafana 관측성(LGTM) 연동 현황](observability-grafana-integration.md) — 본 페이지의 P2P 피어링 이상은 op-node 메트릭(`opp2p_*`)·프로파일로 진단할 수 있으며, 관측성 4축 지원 현황을 다룬다.
 - [op-node 동기화 모드(CLSync/ELSync) & ReqResp P2P Sync Deprecation](op-node-syncmode-reqresp-deprecation.md) — 본 페이지에서 언급한 req-resp 프로토콜(`/opstack/req/payload_by_number/<chainID>/0`)의 **클라이언트가 제거**되어 gap 복구가 op-reth EL snap sync로 넘어간 변화와 `--syncmode` 차이를 다룬다.
-- (아직 없음) 향후 `op-node` Component 페이지, gossip/derivation 관련 Concept 페이지가 생기면 교차링크한다.
+- [OP Stack 트랜잭션 전파 경로 (Ingress → 시퀀서)](op-stack-tx-ingress-propagation.md) — 본 페이지의 libp2p는 **블록**을 나르고, 그 페이지의 devp2p는 **트랜잭션**을 나른다. 이름이 같아 혼동하기 쉬운 두 P2P 레이어를 명시적으로 구분한다.
+- [트랜잭션 `√n` 브로드캐스트 규칙](tx-propagation-sqrt-broadcast.md) — EL(devp2p) 쪽의 전파 규칙. 본 페이지의 gossipsub 토픽·mesh 파라미터와는 **다른 계층의 다른 알고리즘**이다.
+- (아직 없음) 향후 `op-node` Component 페이지, derivation 관련 Concept 페이지가 생기면 교차링크한다.

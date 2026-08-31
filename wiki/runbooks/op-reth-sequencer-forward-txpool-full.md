@@ -177,6 +177,7 @@ RPC 응답에서는 사라진 원본 메시지가 시퀀서 로그에는 남는�
 - [op-reth --txpool.nolocals & Local Transaction Exemption](../concepts/op-reth-txpool-nolocals.md) — 대응책 중 `--txpool.locals`가 무력화되는 조건.
 - [op-reth "Changeset cache MISS" 로그 진단 및 op-stack 유발 경로](op-reth-changeset-cache-miss.md) — 동일 op-reth 로그 진단 런북 계열. 단, 그쪽은 무해·자가복구 WARN인 반면 **이 로그는 사용자 tx가 실제로 유실되는 실패 신호**다.
 - [OP Stack 트랜잭션 수수료 & EIP-1559 (maxFeePerGas / maxPriorityFeePerGas)](../concepts/op-stack-eip1559-fees.md) — 원인 A 대응(priority fee 상향)의 근거 모델.
+- [OP Stack 트랜잭션 전파 경로 (Ingress → 시퀀서)](../concepts/op-stack-tx-ingress-propagation.md) — 이 로그가 나오는 **HTTP 포워딩 경로(길 A)** 의 전체 그림과, 그 대안인 devp2p gossip 경로(길 B). ⚠️ gossip 경로로 바꾸면 이 로그는 사라지지만 **시퀀서 풀 포화가 상류로 전파되지 않아 무증상 유실**이 된다 — 관측 가능성 측면에서는 포워딩이 낫다.
 
 ## 출처
 

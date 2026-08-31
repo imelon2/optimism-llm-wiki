@@ -2,7 +2,7 @@
 <html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AvailableReceiptsFetchingMethods</title>
+<title>Base Fee &amp; Fee Vaults</title>
 <style>
 :root { color-scheme: dark; }
 body { margin:0; background:#0f0f1a; color:#d8d8e0;
@@ -32,25 +32,32 @@ li { margin:.25em 0; }
 </head><body>
 <nav class="top"><a href="../index.html">← Graph</a><a href="../wiki/index.html">Wiki</a><a href="../report.html">Report</a></nav>
 <div class="wrap">
-<h1>AvailableReceiptsFetchingMethods</h1>
-<blockquote>God node · 10 connections · <code>concepts/op-node-l1-rpckind-receipts.md</code></blockquote>
-<p><strong>Community:</strong> <a href="L1_RPC_Kind_%26_Receipts_Methods.html">L1 RPC Kind &amp; Receipts Methods</a></p>
-<h2>Connections by Relation</h2>
-<h3>calls</h3>
+<h1>Base Fee &amp; Fee Vaults</h1>
+<blockquote>8 nodes · cohesion 0.29</blockquote>
+<h2>Key Concepts</h2>
 <ul>
-<li>PickReceiptsMethod <code>EXTRACTED</code></li>
+<li><strong>maxPriorityFeePerGas</strong> (4 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>effectiveGasPrice</strong> (3 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>BaseFeeVault (0x4200...0019)</strong> (2 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>--min-suggested-priority-fee</strong> (2 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>op_suggest_tip_cap</strong> (2 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>base fee 미소각·vault 적립 (OP 고유 차이)</strong> (1 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>maxFeePerGas</strong> (1 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
+<li><strong>SequencerFeeVault (0x4200...0011)</strong> (1 connections) — <code>concepts/op-stack-eip1559-fees.md</code></li>
 </ul>
-<h3>references</h3>
+<h2>Relationships</h2>
 <ul>
-<li>RPCProviderKind <code>EXTRACTED</code></li>
-<li>alchemy_getTransactionReceipts <code>EXTRACTED</code></li>
-<li>PickBestReceiptsFetchingMethod <code>EXTRACTED</code></li>
-<li>OnReceiptsMethodErr <code>EXTRACTED</code></li>
-<li>debug_getRawReceipts <code>EXTRACTED</code></li>
-<li>erigon_getBlockReceiptsByBlockHash <code>EXTRACTED</code></li>
-<li>eth_getBlockReceipts <code>EXTRACTED</code></li>
-<li>eth_getTransactionReceipt batch (최후 fallback) <code>EXTRACTED</code></li>
-<li>parity_getBlockReceipts <code>EXTRACTED</code></li>
+<li>No strong cross-community connections detected</li>
+</ul>
+<h2>Source Files</h2>
+<ul>
+<li><code>concepts/op-stack-eip1559-fees.md</code></li>
+</ul>
+<h2>Audit Trail</h2>
+<ul>
+<li>EXTRACTED: 14 (88%)</li>
+<li>INFERRED: 2 (12%)</li>
+<li>AMBIGUOUS: 0 (0%)</li>
 </ul>
 <hr>
 <p><em>Part of the graphify knowledge wiki. See <a href="index.html">index</a> to navigate.</em></p>

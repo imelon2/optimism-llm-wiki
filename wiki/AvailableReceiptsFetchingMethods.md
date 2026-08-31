@@ -2,7 +2,7 @@
 
 > God node · 10 connections · `concepts/op-node-l1-rpckind-receipts.md`
 
-**Community:** [L1 Receipts Method Selection](L1_Receipts_Method_Selection.md)
+**Community:** [L1 RPC Kind & Receipts Methods](L1_RPC_Kind_%26_Receipts_Methods.md)
 
 ## Connections by Relation
 

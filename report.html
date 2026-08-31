@@ -32,54 +32,52 @@ li { margin:.25em 0; }
 </head><body>
 <nav class="top"><a href="index.html">← Graph</a><a href="wiki/index.html">Wiki</a><a href="report.html">Report</a></nav>
 <div class="wrap">
-<h1>Graph Report - ./wiki  (2026-08-24)</h1>
+<h1>Graph Report - ./wiki  (2026-08-31)</h1>
 <h2>Corpus Check</h2>
 <ul>
-<li>Corpus is ~21,868 words - fits in a single context window. You may not need a graph.</li>
+<li>11 files · ~27,853 words</li>
+<li>Verdict: corpus is large enough that graph structure adds value.</li>
 </ul>
 <h2>Summary</h2>
 <ul>
-<li>322 nodes · 362 edges · 22 communities (19 shown, 3 thin omitted)</li>
-<li>Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.83)</li>
-<li>Token cost: 291,893 input · 0 output</li>
+<li>310 nodes · 438 edges · 19 communities (17 shown, 2 thin omitted)</li>
+<li>Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 32 edges (avg confidence: 0.8)</li>
+<li>Token cost: 138,220 input · 0 output</li>
 </ul>
 <h2>Community Hubs (Navigation)</h2>
 <ul>
-<li>Txpool Local Exemption Rules</li>
-<li>L1 RPC Failure Diagnostics</li>
-<li>Single Event Loop Blocking</li>
-<li>Sequencer Stall Timeline</li>
-<li>Rollup Timing Parameters</li>
-<li>Wiki Catalogue and Runbooks</li>
-<li>P2P Peering and Chain Isolation</li>
-<li>Fee Pricing and Pool Eviction</li>
-<li>Observability and Profiling</li>
-<li>L1 Receipts Method Selection</li>
-<li>devp2p Peer Slot Control</li>
+<li>Transaction Submission &amp; Local Exemption</li>
+<li>P2P Peering &amp; Chain Isolation</li>
+<li>Sqrt Broadcast &amp; Tx Gossip</li>
+<li>L1 Receipts &amp; Derivation Stalls</li>
+<li>Single Event Loop Design</li>
+<li>Sequencer L1 Origin Stalls</li>
+<li>L1 RPC Kind &amp; Receipts Methods</li>
+<li>EIP-1559 Params &amp; Block Time</li>
 <li>L1 Confirmation Depth</li>
-<li>Changeset Cache Miss Path</li>
-<li>Personal Namespace Removal</li>
-<li>CLSync vs ELSync Modes</li>
-<li>L1 Data Fee Predeploys</li>
-<li>Engine API Block Cycle</li>
-<li>Txpool Full Error Collapse</li>
-<li>Txpool Locals Flags</li>
-<li>OTLP Logs Feature Gate</li>
-<li>ReqResp Server Rate Limits</li>
-<li>Local Transaction Origin</li>
+<li>Engine API &amp; Payload Building</li>
+<li>Observability &amp; Profiling</li>
+<li>Sync Modes &amp; ReqResp Deprecation</li>
+<li>discv5 Bootnode Discovery</li>
+<li>Sequencer Block Production Cycle</li>
+<li>personal Namespace Removal</li>
+<li>L1 Data Fee &amp; Gas Oracle</li>
+<li>Base Fee &amp; Fee Vaults</li>
+<li>OTLP Log Export</li>
+<li>ReqResp Payload Server</li>
 </ul>
 <h2>God Nodes (most connected - your core abstractions)</h2>
 <ol>
+<li><code>트랜잭션 √n 브로드캐스트 규칙 (원본 전송 vs 해시 알림)</code> - 22 edges</li>
+<li><code>OP Stack 트랜잭션 전파 경로 (Ingress → 시퀀서)</code> - 21 edges</li>
+<li><code>reth/op-reth txpool 용량 한도 &amp; 계정 슬롯 제한 (-32003 "txpool is full")</code> - 18 edges</li>
+<li><code>op-node P2P Peering &amp; Chain Isolation</code> - 17 edges</li>
+<li><code>op-reth --max-outbound-peers &amp; devp2p 피어 슬롯 제어</code> - 17 edges</li>
+<li><code>OP Stack 시퀀서 블록 생성 과정 (2초 사이클)</code> - 16 edges</li>
+<li><code>txpool nonce 갭으로 인한 트랜잭션 전파 정지</code> - 15 edges</li>
+<li><code>op-reth --txpool.nolocals &amp; Local Transaction Exemption</code> - 14 edges</li>
+<li><code>op-reth "HTTP request to sequencer failed ... -32003: txpool is full" 진단</code> - 12 edges</li>
 <li><code>AvailableReceiptsFetchingMethods</code> - 10 edges</li>
-<li><code>GlobalSyncExec</code> - 8 edges</li>
-<li><code>--max-outbound-peers</code> - 8 edges</li>
-<li><code>rollup.Config.BlockTime</code> - 8 edges</li>
-<li><code>--txpool.nolocals</code> - 7 edges</li>
-<li><code>FindL1Origin</code> - 7 edges</li>
-<li><code>LGTM observability</code> - 6 edges</li>
-<li><code>personal_listAccounts</code> - 6 edges</li>
-<li><code>LocalTransactionConfig</code> - 6 edges</li>
-<li><code>FindL1Origin</code> - 6 edges</li>
 </ol>
 <h2>Surprising Connections (you probably didn't know these)</h2>
 <ul>
@@ -87,129 +85,120 @@ li { margin:.25em 0; }
 </ul>
 <p>  concepts/observability-grafana-integration.md → concepts/op-node-event-loop-design.md</p>
 <ul>
-<li><code>2026-07-04 receipts fetch ingest</code> --references--&gt; <code>Fetch Receipts Context Deadline Runbook</code>  [EXTRACTED]</li>
+<li><code>failed adding boot node err=Timeout</code> --semantically_similar_to--&gt; <code>context deadline exceeded</code>  [INFERRED] [semantically similar]</li>
 </ul>
-<p>  log.md → runbooks/op-node-fetch-receipts-context-deadline.md</p>
+<p>  runbooks/op-reth-discv5-bootnode-timeout.md → runbooks/op-node-fetch-receipts-context-deadline.md</p>
 <ul>
-<li><code>op-node stall as burst amplifier</code> --semantically_similar_to--&gt; <code>unsafe head stall</code>  [INFERRED] [semantically similar]</li>
+<li><code>Wiki Index</code> --references--&gt; <code>op-node P2P Peering &amp; Chain Isolation</code>  [EXTRACTED]</li>
 </ul>
-<p>  runbooks/op-reth-changeset-cache-miss.md → runbooks/op-node-find-l1-origin-stall.md</p>
+<p>  index.md → concepts/op-node-p2p-peering.md</p>
 <ul>
-<li><code>2026-07-03 changeset cache miss ingest</code> --references--&gt; <code>Changeset Cache MISS Runbook</code>  [EXTRACTED]</li>
+<li><code>Wiki Log</code> --references--&gt; <code>op-node P2P Peering &amp; Chain Isolation</code>  [EXTRACTED]</li>
 </ul>
-<p>  log.md → runbooks/op-reth-changeset-cache-miss.md</p>
+<p>  log.md → concepts/op-node-p2p-peering.md</p>
 <ul>
-<li><code>2026-06-29 discv5 bootnode ingest</code> --references--&gt; <code>discv5 Bootnode Timeout Runbook</code>  [EXTRACTED]</li>
+<li><code>Wiki Index</code> --references--&gt; <code>op-reth --max-outbound-peers &amp; devp2p 피어 슬롯 제어</code>  [EXTRACTED]</li>
 </ul>
-<p>  log.md → runbooks/op-reth-discv5-bootnode-timeout.md</p>
+<p>  index.md → concepts/op-reth-max-outbound-peers.md</p>
 <h2>Import Cycles</h2>
 <ul>
 <li>None detected.</li>
 </ul>
 <h2>Hyperedges (group relationships)</h2>
 <ul>
-<li><strong>op-node 단일 이벤트 루프 콜스택</strong> — concepts_op_node_event_loop_design_eventloop, concepts_op_node_event_loop_design_drain, concepts_op_node_event_loop_design_processevent, concepts_op_node_event_loop_design_runevent, concepts_op_node_event_loop_design_globalsyncexec [EXTRACTED 1.00]</li>
-<li><strong>시퀀서 2초 사이클 Engine API 흐름</strong> — concepts_op_stack_block_production_sequenceractionevent, concepts_op_stack_block_production_findl1origin, concepts_op_stack_block_production_engine_forkchoiceupdatedv3, concepts_op_stack_block_production_engine_getpayloadv3, concepts_op_stack_block_production_engine_newpayloadv3 [EXTRACTED 1.00]</li>
-<li><strong>두 원인이 -32003으로 붕괴되는 경로</strong> — concepts_reth_txpool_capacity_slot_limits_discardedoninsert, concepts_reth_txpool_capacity_slot_limits_spammerexceededcapacity, concepts_reth_txpool_capacity_slot_limits_rpcpoolerror_txpooloverflow, concepts_reth_txpool_capacity_slot_limits_32003_txpool_is_full [EXTRACTED 1.00]</li>
-<li><strong>L1 RPC latency to single-event-loop lock to block production stall</strong> — runbooks_op_node_find_l1_origin_stall_findl1origin, runbooks_op_node_find_l1_origin_stall_calltimeout, runbooks_op_node_find_l1_origin_stall_lock_ratio_91, runbooks_op_node_find_l1_origin_stall_unsafe_head_stall, runbooks_op_node_fetch_receipts_context_deadline_single_event_loop_blocking, runbooks_op_node_fetch_receipts_context_deadline_fetchreceipts [EXTRACTED 1.00]</li>
-<li><strong>Engine API block build cycle (FCU-with-attributes to newPayload)</strong> — runbooks_op_reth_changeset_cache_miss_onbuildstart, runbooks_op_reth_changeset_cache_miss_engine_forkchoiceupdatedv3, runbooks_op_reth_changeset_cache_miss_engine_getpayloadv3, runbooks_op_reth_changeset_cache_miss_engine_newpayloadv3, runbooks_op_reth_changeset_cache_miss_new_payload_job_created, runbooks_op_reth_changeset_cache_miss_changeset_cache_miss [EXTRACTED 1.00]</li>
-<li><strong>Replica forwarding failure path for -32003 txpool is full</strong> — runbooks_op_reth_sequencer_forward_txpool_full_rollup_sequencer, runbooks_op_reth_sequencer_forward_txpool_full_forward_raw_transaction, runbooks_op_reth_sequencer_forward_txpool_full_sequencerclient_request, runbooks_op_reth_sequencer_forward_txpool_full_http_request_to_sequencer_failed, runbooks_op_reth_sequencer_forward_txpool_full_raw_tx_forwarder_early_return, runbooks_op_reth_sequencer_forward_txpool_full_32003_txpool_is_full [EXTRACTED 1.00]</li>
+<li><strong>Ingress → 시퀀서 트랜잭션 도달 전체 흐름</strong> — concepts_op_stack_tx_ingress_propagation, concepts_tx_propagation_sqrt_broadcast, concepts_txpool_nonce_gap_propagation_stall, concepts_reth_txpool_capacity_slot_limits, concepts_op_stack_block_production [INFERRED 0.85]</li>
+<li><strong>-32003 "txpool is full" 진단 사슬 (replica 로그 → 원인 A/B → local 면제)</strong> — runbooks_op_reth_sequencer_forward_txpool_full, concepts_reth_txpool_capacity_slot_limits, concepts_op_reth_txpool_nolocals, concepts_reth_txpool_capacity_slot_limits_discardedoninsert, concepts_reth_txpool_capacity_slot_limits_spammerexceededcapacity, concepts_reth_txpool_capacity_slot_limits_error_32003_txpool_is_full [EXTRACTED 1.00]</li>
+<li><strong>CL libp2p(블록) vs EL devp2p(트랜잭션) 두 P2P 레이어 분리</strong> — concepts_op_node_p2p_peering, concepts_op_reth_max_outbound_peers, concepts_op_stack_tx_ingress_propagation_two_p2p_networks, concepts_op_node_p2p_peering_libp2p_block_gossip, concepts_op_reth_max_outbound_peers_devp2p_rlpx_network [EXTRACTED 1.00]</li>
 </ul>
-<h2>Communities (22 total, 3 thin omitted)</h2>
-<h3>Community 0 - "Txpool Local Exemption Rules"</h3>
-<p>Cohesion: 0.09</p>
-<p>Nodes (26): clef 외부 서명자, eth_sendRawTransaction, eth_sendRawTransaction, Eviction 면제, is_local(), LocalTransactionConfig, max_account_slots (기본 16), no_exemptions (+18 more)</p>
-<h3>Community 1 - "L1 RPC Failure Diagnostics"</h3>
+<h2>Communities (19 total, 2 thin omitted)</h2>
+<h3>Community 0 - "Transaction Submission &amp; Local Exemption"</h3>
 <p>Cohesion: 0.08</p>
-<p>Nodes (26): batchCallTimeout, CachingReceiptsProvider, connection reset by peer, context deadline exceeded, DerivationPipeline.Step, Engine failed temporarily, backing off sequencer, failed to fetch receipts for L1 sysCfg update, FetchReceipts (+18 more)</p>
-<h3>Community 2 - "Single Event Loop Blocking"</h3>
-<p>Cohesion: 0.09</p>
-<p>Nodes (24): 블로킹 백오프(창구 잠김), Drain(), Emit / executor.Enqueue, driver eventLoop, Executor 인터페이스, GlobalSyncExec, pprof goroutine 덤프 진단, libp2p eventbus Emit 배압 (+16 more)</p>
-<h3>Community 3 - "Sequencer Stall Timeline"</h3>
-<p>Cohesion: 0.09</p>
-<p>Nodes (23): callTimeout, event.NewGlobalSynchronous, Exponential backoff recovery window, retry.Exponential, Single event loop blocking, batchCallTimeout, callTimeout, ErrNextL1OriginRequired (+15 more)</p>
-<h3>Community 4 - "Rollup Timing Parameters"</h3>
-<p>Cohesion: 0.11</p>
-<p>Nodes (22): rollup.Config.MaxSequencerDrift, attrs.NoTxPool, MaxSequencerDrift (1800초 프로토콜 상수), 타임스탬프 산술 유도, eip1559Denominator, eip1559Elasticity, 제네시스 EIP-1559 기본 상수(elasticity 10 / denom 50·250), Holocene/Jovian extraData 인코딩 (+14 more)</p>
-<h3>Community 5 - "Wiki Catalogue and Runbooks"</h3>
+<p>Nodes (43): clef 외부 서명자, eth_sendRawTransaction, op-reth --txpool.nolocals &amp; Local Transaction Exemption, local 트랜잭션 면제 3종 (slot/price/eviction), LocalTransactionConfig, --txpool.no-local-transactions-propagation, eth_sendRawTransaction → TransactionOrigin::External, --txpool.locals (+35 more)</p>
+<h3>Community 1 - "P2P Peering &amp; Chain Isolation"</h3>
 <p>Cohesion: 0.13</p>
-<p>Nodes (22): Wiki Index, 2026-06-29 discv5 bootnode ingest, 2026-07-03 changeset cache miss ingest, 2026-07-04 receipts fetch ingest, 2026-07-28 txpool full ingest, 2026-08-24 block production and L1 RPC stall ingest, Wiki Log, Fetch Receipts Context Deadline Runbook (+14 more)</p>
-<h3>Community 6 - "P2P Peering and Chain Isolation"</h3>
+<p>Nodes (28): op-node P2P Peering &amp; Chain Isolation, BlockingConnectionGater, 체인별 gossip 토픽 /optimism/&lt;L2ChainID&gt;/N/blocks, discv5 discovery (ListenV5), FilterEnodes(), 방화벽 P2P 포트(9222) inbound 차단, InterceptAccept / InterceptSecured 게이팅 한계, libp2p(gossipsub) 블록 전파 네트워크 (+20 more)</p>
+<h3>Community 2 - "Sqrt Broadcast &amp; Tx Gossip"</h3>
+<p>Cohesion: 0.14</p>
+<p>Nodes (24): eviction 면제의 서브풀 비대칭 (pending만 보호), 트랜잭션 √n 브로드캐스트 규칙 (원본 전송 vs 해시 알림), buffer_hashes() — reth의 실제 지연 지점, choosePeers (op-geth, siphash + txSender), devp2p caps/eth.md — Transaction Exchange, EIP-2464 (eth/65 announcements and retrievals), fetched_transactions 메트릭, hashes_pending_fetch 메트릭 (+16 more)</p>
+<h3>Community 3 - "L1 Receipts &amp; Derivation Stalls"</h3>
+<p>Cohesion: 0.10</p>
+<p>Nodes (22): batchCallTimeout, CachingReceiptsProvider, callTimeout, context deadline exceeded, DerivationPipeline.Step, event.NewGlobalSynchronous, Exponential backoff recovery window, FetchReceipts (+14 more)</p>
+<h3>Community 4 - "Single Event Loop Design"</h3>
 <p>Cohesion: 0.11</p>
-<p>Nodes (19): BlockingConnectionGater, 체인별 gossip 토픽 /optimism/&lt;L2ChainID&gt;/*/blocks, discv5 discovery, FilterEnodes, 방화벽 inbound 차단 (TCP/UDP 9222), inbound은 chainID로 게이팅되지 않는다, InterceptAccept / InterceptSecured, opp2p_blockPeer / blockAddr / blockSubnet (+11 more)</p>
-<h3>Community 7 - "Fee Pricing and Pool Eviction"</h3>
-<p>Cohesion: 0.12</p>
-<p>Nodes (19): base fee 미소각·vault 적립 (OP 고유 차이), BaseFeeVault (0x4200...0019), effectiveGasPrice, maxFeePerGas, maxPriorityFeePerGas, --min-suggested-priority-fee, op_suggest_tip_cap, SequencerFeeVault (0x4200...0011) (+11 more)</p>
-<h3>Community 8 - "Observability and Profiling"</h3>
-<p>Cohesion: 0.12</p>
-<p>Nodes (18): 연속 프로파일링 SRE 활용, /debug/pprof/*, Grafana Pyroscope, Grafana Tempo, LGTM observability, /metrics 엔드포인트, 관측성 4축(메트릭·로그·프로파일·트레이스), op-node Tracer 훅 인터페이스 (+10 more)</p>
-<h3>Community 9 - "L1 Receipts Method Selection"</h3>
+<p>Nodes (19): 블로킹 백오프(창구 잠김), Drain(), Emit / executor.Enqueue, driver eventLoop, Executor 인터페이스, GlobalSyncExec, pprof goroutine 덤프 진단, libp2p eventbus Emit 배압 (+11 more)</p>
+<h3>Community 5 - "Sequencer L1 Origin Stalls"</h3>
+<p>Cohesion: 0.11</p>
+<p>Nodes (19): connection reset by peer, Engine failed temporarily, backing off sequencer, failed to fetch receipts for L1 sysCfg update, Fetch Receipts Context Deadline Runbook, NewTemporaryError, Sequencer.onEngineTemporaryError, ErrNextL1OriginRequired, Error finding next L1 Origin (+11 more)</p>
+<h3>Community 6 - "L1 RPC Kind &amp; Receipts Methods"</h3>
 <p>Cohesion: 0.12</p>
 <p>Nodes (18): alchemy_getTransactionReceipts, AvailableReceiptsFetchingMethods, CU 비용 손익분기 모델, debug_getRawReceipts, erigon_getBlockReceiptsByBlockHash, eth_getBlockReceipts, eth_getTransactionReceipt batch (최후 fallback), --l1.rpckind (+10 more)</p>
-<h3>Community 10 - "devp2p Peer Slot Control"</h3>
-<p>Cohesion: 0.11</p>
-<p>Nodes (18): best_unconnected, ConnectionsConfig::default(), fill_outbound_slots, has_out_capacity, inbound trusted 예외 경로(outbound엔 없음), max_concurrent_outbound_dials, --max-inbound-peers, --max-outbound-peers (+10 more)</p>
-<h3>Community 11 - "L1 Confirmation Depth"</h3>
+<h3>Community 7 - "EIP-1559 Params &amp; Block Time"</h3>
+<p>Cohesion: 0.12</p>
+<p>Nodes (18): eip1559Denominator, eip1559Elasticity, 제네시스 EIP-1559 기본 상수(elasticity 10 / denom 50·250), Holocene/Jovian extraData 인코딩, minBaseFee / setMinBaseFee, setEIP1559Params, SystemConfig, ErrBlockTimeZero (+10 more)</p>
+<h3>Community 8 - "L1 Confirmation Depth"</h3>
 <p>Cohesion: 0.14</p>
-<p>Nodes (16): confDepth 래퍼, sequencer depth 과다 → deposit-only 블록, ethereum.NotFound, L1BlockRefByNumber, confdepth.NewConfDepth, derive.NewDerivationPipeline, sequencing.NewL1OriginSelector, OP_NODE_SEQUENCER_L1_CONFS (+8 more)</p>
-<h3>Community 12 - "Changeset Cache Miss Path"</h3>
+<p>Nodes (16): confDepth 래퍼, sequencer depth 과다 → deposit-only 블록, ethereum.NotFound, L1BlockRefByNumber, rollup.Config.MaxSequencerDrift, confdepth.NewConfDepth, derive.NewDerivationPipeline, sequencing.NewL1OriginSelector (+8 more)</p>
+<h3>Community 9 - "Engine API &amp; Payload Building"</h3>
+<p>Cohesion: 0.13</p>
+<p>Nodes (16): op-conductor health monitor failover, unsafe head stall, Changeset cache MISS, falling back to DB-based computation, engine_forkchoiceUpdatedV3, engine_getPayloadV3, engine_newPayloadV3, ExecEngine interface, FinalizedBlockHash evict threshold (+8 more)</p>
+<h3>Community 10 - "Observability &amp; Profiling"</h3>
 <p>Cohesion: 0.15</p>
-<p>Nodes (14): Changeset cache MISS, falling back to DB-based computation, engine_forkchoiceUpdatedV3, engine_getPayloadV3, engine_newPayloadV3, ExecEngine interface, FinalizedBlockHash evict threshold, ForkchoiceState HeadBlockHash, Loki correlation query (+6 more)</p>
-<h3>Community 13 - "Personal Namespace Removal"</h3>
+<p>Nodes (15): 연속 프로파일링 SRE 활용, /debug/pprof/*, Grafana Pyroscope, Grafana Tempo, LGTM observability, /metrics 엔드포인트, 관측성 4축(메트릭·로그·프로파일·트레이스), op-node Tracer 훅 인터페이스 (+7 more)</p>
+<h3>Community 11 - "Sync Modes &amp; ReqResp Deprecation"</h3>
+<p>Cohesion: 0.16</p>
+<p>Nodes (14): Engine.AddUnsafePayload, CLSync (consensus-layer), CLSync의 SYNCING 응답 허용 fallback, op-reth EL P2P snap sync, ELSync (execution-layer), Engine.InsertUnsafePayload, --l2.enginekind, --p2p.sync.onlyReqToStatic (deprecated no-op) (+6 more)</p>
+<h3>Community 12 - "discv5 Bootnode Discovery"</h3>
+<p>Cohesion: 0.15</p>
+<p>Nodes (13): bootstrap, DEFAULT_DISCOVERY_V5_PORT, discport port mismatch, discv5.add_enr, discv5 Bootnode Timeout Runbook, discv5.request_enr, EL CL bootnode confusion, enode (+5 more)</p>
+<h3>Community 13 - "Sequencer Block Production Cycle"</h3>
+<p>Cohesion: 0.33</p>
+<p>Nodes (11): OP Stack 시퀀서 블록 생성 과정 (2초 사이클), Engine API 호출 순서 (forkchoiceUpdatedV3 → getPayloadV3 → newPayloadV3), FindL1Origin (L1 origin 선택), 고정 블록 간격 (타임스탬프 산술 유도), handleInvalid() 재스케줄, L1 origin 500ms best-effort 선캐싱, max sequencer drift 1800초, 9단계 2초 블록 생성 사이클 (+3 more)</p>
+<h3>Community 14 - "personal Namespace Removal"</h3>
 <p>Cohesion: 0.24</p>
 <p>Nodes (10): -32601 method does not exist, accounts.Manager 순회, eth_accounts, op-geth v1.101702.3-rc.4 pin, personal_listAccounts, personal_listWallets, 비밀번호 RPC 전송·서버측 해제 키 위험, PersonalAccountAPI (+2 more)</p>
-<h3>Community 14 - "CLSync vs ELSync Modes"</h3>
-<p>Cohesion: 0.24</p>
-<p>Nodes (10): Engine.AddUnsafePayload, CLSync (consensus-layer), CLSync의 SYNCING 응답 허용 fallback, op-reth EL P2P snap sync, ELSync (execution-layer), Engine.InsertUnsafePayload, --l2.enginekind, SupportsPostFinalizationELSync (+2 more)</p>
-<h3>Community 15 - "L1 Data Fee Predeploys"</h3>
+<h3>Community 15 - "L1 Data Fee &amp; Gas Oracle"</h3>
 <p>Cohesion: 0.20</p>
 <p>Nodes (10): GasPriceOracle (0x420...000F), _getL1FeeBedrock, _getL1FeeEcotone, _getL1FeeFjord, L1 data fee, L1Block predeploy (0x420...0015), L1FeeVault (0x4200...001A), operator fee (Isthmus+) (+2 more)</p>
-<h3>Community 16 - "Engine API Block Cycle"</h3>
-<p>Cohesion: 0.32</p>
-<p>Nodes (8): conductor 커밋 / asyncGossip, Engine API, engine_forkchoiceUpdatedV3, engine_getPayloadV3, engine_newPayloadV3, handleInvalid, sealingDuration (50ms), unsafe → safe → finalized 승격</p>
-<h3>Community 17 - "Txpool Full Error Collapse"</h3>
+<h3>Community 16 - "Base Fee &amp; Fee Vaults"</h3>
 <p>Cohesion: 0.29</p>
-<p>Nodes (8): -32000 geth txpool is full, -32003 txpool is full, DiscardedOnInsert, max_account_slots, rollup-boost parse_response_code, SpammerExceededCapacity, txpool_contentFrom, txpool_status</p>
-<h3>Community 18 - "Txpool Locals Flags"</h3>
-<p>Cohesion: 0.67</p>
-<p>Nodes (3): TransactionOrigin::External, --txpool.locals, --txpool.nolocals</p>
+<p>Nodes (8): base fee 미소각·vault 적립 (OP 고유 차이), BaseFeeVault (0x4200...0019), effectiveGasPrice, maxFeePerGas, maxPriorityFeePerGas, --min-suggested-priority-fee, op_suggest_tip_cap, SequencerFeeVault (0x4200...0011)</p>
 <h2>Knowledge Gaps</h2>
 <ul>
-<li><strong>122 isolated node(s):</strong> <code>--pprof.enabled</code>, <code>--tracing-otlp.filter</code>, <code>--tracing-otlp.sample-ratio</code>, <code>--logs-otlp</code>, <code>otlp-logs Cargo feature</code> (+117 more)</li>
+<li><strong>83 isolated node(s):</strong> <code>--pprof.enabled</code>, <code>--tracing-otlp.filter</code>, <code>--tracing-otlp.sample-ratio</code>, <code>--logs-otlp</code>, <code>otlp-logs Cargo feature</code> (+78 more)</li>
 </ul>
 <p>  These have ≤1 connection - possible missing edges or undocumented components.</p>
 <ul>
-<li><strong>3 thin communities (&lt;3 nodes) omitted from report</strong> — run <code>graphify query</code> to explore isolated nodes.</li>
+<li><strong>2 thin communities (&lt;3 nodes) omitted from report</strong> — run <code>graphify query</code> to explore isolated nodes.</li>
 </ul>
 <h2>Suggested Questions</h2>
 <p>_Questions this graph is uniquely positioned to answer:_</p>
 <ul>
-<li><strong>Why does <code>LGTM observability</code> connect <code>Observability and Profiling</code> to <code>L1 Receipts Method Selection</code>?</strong></li>
+<li><strong>Why does <code>--sequencer.l1-confs</code> connect <code>L1 Confirmation Depth</code> to <code>Sequencer Block Production Cycle</code>?</strong></li>
 </ul>
-<p>  _High betweenness centrality (0.225) - this node is a cross-community bridge._</p>
+<p>  _High betweenness centrality (0.268) - this node is a cross-community bridge._</p>
 <ul>
-<li><strong>Why does <code>--l1.rpckind</code> connect <code>L1 Receipts Method Selection</code> to <code>Observability and Profiling</code>, <code>L1 Confirmation Depth</code>?</strong></li>
+<li><strong>Why does <code>OP Stack 시퀀서 블록 생성 과정 (2초 사이클)</code> connect <code>Sequencer Block Production Cycle</code> to <code>Transaction Submission &amp; Local Exemption</code>, <code>P2P Peering &amp; Chain Isolation</code>, <code>Sqrt Broadcast &amp; Tx Gossip</code>?</strong></li>
 </ul>
-<p>  _High betweenness centrality (0.162) - this node is a cross-community bridge._</p>
+<p>  _High betweenness centrality (0.262) - this node is a cross-community bridge._</p>
 <ul>
-<li><strong>Are the 2 inferred relationships involving <code>GlobalSyncExec</code> (e.g. with <code>op-node Tracer 훅 인터페이스</code> and <code>libp2p pubsub processLoop</code>) actually correct?</strong></li>
+<li><strong>Why does <code>L1 origin 500ms best-effort 선캐싱</code> connect <code>Sequencer Block Production Cycle</code> to <code>L1 Confirmation Depth</code>?</strong></li>
 </ul>
-<p>  _<code>GlobalSyncExec</code> has 2 INFERRED edges - model-reasoned connections that need verification._</p>
+<p>  _High betweenness centrality (0.238) - this node is a cross-community bridge._</p>
 <ul>
 <li><strong>What connects <code>--pprof.enabled</code>, <code>--tracing-otlp.filter</code>, <code>--tracing-otlp.sample-ratio</code> to the rest of the system?</strong></li>
 </ul>
-<p>  _139 weakly-connected nodes found - possible documentation gaps or missing edges._</p>
+<p>  _96 weakly-connected nodes found - possible documentation gaps or missing edges._</p>
 <ul>
-<li><strong>Should <code>Txpool Local Exemption Rules</code> be split into smaller, more focused modules?</strong></li>
+<li><strong>Should <code>Transaction Submission &amp; Local Exemption</code> be split into smaller, more focused modules?</strong></li>
 </ul>
-<p>  _Cohesion score 0.08831908831908832 - nodes in this community are weakly interconnected._</p>
+<p>  _Cohesion score 0.07928118393234672 - nodes in this community are weakly interconnected._</p>
 <ul>
-<li><strong>Should <code>L1 RPC Failure Diagnostics</code> be split into smaller, more focused modules?</strong></li>
+<li><strong>Should <code>P2P Peering &amp; Chain Isolation</code> be split into smaller, more focused modules?</strong></li>
 </ul>
-<p>  _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._</p>
+<p>  _Cohesion score 0.13227513227513227 - nodes in this community are weakly interconnected._</p>
 <ul>
-<li><strong>Should <code>Single Event Loop Blocking</code> be split into smaller, more focused modules?</strong></li>
+<li><strong>Should <code>Sqrt Broadcast &amp; Tx Gossip</code> be split into smaller, more focused modules?</strong></li>
 </ul>
-<p>  _Cohesion score 0.09333333333333334 - nodes in this community are weakly interconnected._</p>
+<p>  _Cohesion score 0.14130434782608695 - nodes in this community are weakly interconnected._</p>
 </div>
 </body></html>

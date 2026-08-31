@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>op-node P2P Peering &amp; Chain Isolation</title>
+<style>
+:root { color-scheme: dark; }
+body { margin:0; background:#0f0f1a; color:#d8d8e0;
+  font:15px/1.75 -apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 20px 80px; }
+nav.top { position:sticky; top:0; background:#0f0f1aee; border-bottom:1px solid #2a2a4e;
+  padding:10px 20px; font-size:13px; backdrop-filter:blur(6px); }
+nav.top a { color:#8ab4dd; text-decoration:none; margin-right:14px; }
+nav.top a:hover { text-decoration:underline; }
+h1,h2,h3 { color:#f0f0f5; line-height:1.35; margin:1.6em 0 .6em; }
+h1 { font-size:1.7em; margin-top:.4em; } h2 { font-size:1.3em; } h3 { font-size:1.1em; }
+a { color:#8ab4dd; }
+code { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:4px;
+  padding:1px 5px; font-size:.9em; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+pre { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:8px;
+  padding:12px 14px; overflow-x:auto; }
+pre code { background:none; border:none; padding:0; }
+blockquote { margin:1em 0; padding:.4em 1em; border-left:3px solid #4E79A7;
+  background:#16162a; color:#aaa; }
+hr { border:none; border-top:1px solid #2a2a4e; margin:2em 0; }
+table { border-collapse:collapse; width:100%; display:block; overflow-x:auto; }
+th,td { border:1px solid #2a2a4e; padding:6px 10px; text-align:left; }
+th { background:#1a1a2e; }
+ul,ol { padding-left:1.4em; }
+li { margin:.25em 0; }
+</style>
+</head><body>
+<nav class="top"><a href="../index.html">← Graph</a><a href="../wiki/index.html">Wiki</a><a href="../report.html">Report</a></nav>
+<div class="wrap">
+<h1>op-node P2P Peering &amp; Chain Isolation</h1>
+<blockquote>God node · 17 connections · <code>concepts/op-node-p2p-peering.md</code></blockquote>
+<p><strong>Community:</strong> <a href="P2P_Peering_%26_Chain_Isolation.html">P2P Peering &amp; Chain Isolation</a></p>
+<h2>Connections by Relation</h2>
+<h3>references</h3>
+<ul>
+<li><a href="%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98_%E2%88%9An_%EB%B8%8C%EB%A1%9C%EB%93%9C%EC%BA%90%EC%8A%A4%ED%8A%B8_%EA%B7%9C%EC%B9%99_%28%EC%9B%90%EB%B3%B8_%EC%A0%84%EC%86%A1_vs_%ED%95%B4%EC%8B%9C_%EC%95%8C%EB%A6%BC%29.html">트랜잭션 √n 브로드캐스트 규칙 (원본 전송 vs 해시 알림)</a> <code>EXTRACTED</code></li>
+<li><a href="OP_Stack_%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98_%EC%A0%84%ED%8C%8C_%EA%B2%BD%EB%A1%9C_%28Ingress_%E2%86%92_%EC%8B%9C%ED%80%80%EC%84%9C%29.html">OP Stack 트랜잭션 전파 경로 (Ingress → 시퀀서)</a> <code>EXTRACTED</code></li>
+<li><a href="op-reth_--max-outbound-peers_%26_devp2p_%ED%94%BC%EC%96%B4_%EC%8A%AC%EB%A1%AF_%EC%A0%9C%EC%96%B4.html">op-reth --max-outbound-peers &amp; devp2p 피어 슬롯 제어</a> <code>EXTRACTED</code></li>
+<li>Wiki Index <code>EXTRACTED</code></li>
+<li>Wiki Log <code>EXTRACTED</code></li>
+<li>libp2p(gossipsub) 블록 전파 네트워크 <code>EXTRACTED</code></li>
+<li>체인별 gossip 토픽 /optimism/&lt;L2ChainID&gt;/N/blocks <code>EXTRACTED</code></li>
+<li>discv5 discovery (ListenV5) <code>EXTRACTED</code></li>
+<li>BlockingConnectionGater <code>EXTRACTED</code></li>
+<li>FilterEnodes() <code>EXTRACTED</code></li>
+<li>InterceptAccept / InterceptSecured 게이팅 한계 <code>EXTRACTED</code></li>
+<li>--p2p.no-discovery + --p2p.static (정적 신뢰 피어) <code>EXTRACTED</code></li>
+<li>피어 스코어링 &amp; 밴 (--p2p.ban.peers) <code>EXTRACTED</code></li>
+<li>방화벽 P2P 포트(9222) inbound 차단 <code>EXTRACTED</code></li>
+<li>opp2p_blockPeer / blockAddr / blockSubnet RPC <code>EXTRACTED</code></li>
+<li>ENR opstack 키 + chainID 필터 <code>EXTRACTED</code></li>
+<li>--p2p.netrestrict <code>EXTRACTED</code></li>
+</ul>
+<hr>
+<p><em>Part of the graphify knowledge wiki. See <a href="index.html">index</a> to navigate.</em></p>
+</div>
+</body></html>

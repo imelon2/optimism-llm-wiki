@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sequencer Block Production Cycle</title>
+<style>
+:root { color-scheme: dark; }
+body { margin:0; background:#0f0f1a; color:#d8d8e0;
+  font:15px/1.75 -apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 20px 80px; }
+nav.top { position:sticky; top:0; background:#0f0f1aee; border-bottom:1px solid #2a2a4e;
+  padding:10px 20px; font-size:13px; backdrop-filter:blur(6px); }
+nav.top a { color:#8ab4dd; text-decoration:none; margin-right:14px; }
+nav.top a:hover { text-decoration:underline; }
+h1,h2,h3 { color:#f0f0f5; line-height:1.35; margin:1.6em 0 .6em; }
+h1 { font-size:1.7em; margin-top:.4em; } h2 { font-size:1.3em; } h3 { font-size:1.1em; }
+a { color:#8ab4dd; }
+code { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:4px;
+  padding:1px 5px; font-size:.9em; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+pre { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:8px;
+  padding:12px 14px; overflow-x:auto; }
+pre code { background:none; border:none; padding:0; }
+blockquote { margin:1em 0; padding:.4em 1em; border-left:3px solid #4E79A7;
+  background:#16162a; color:#aaa; }
+hr { border:none; border-top:1px solid #2a2a4e; margin:2em 0; }
+table { border-collapse:collapse; width:100%; display:block; overflow-x:auto; }
+th,td { border:1px solid #2a2a4e; padding:6px 10px; text-align:left; }
+th { background:#1a1a2e; }
+ul,ol { padding-left:1.4em; }
+li { margin:.25em 0; }
+</style>
+</head><body>
+<nav class="top"><a href="../index.html">← Graph</a><a href="../wiki/index.html">Wiki</a><a href="../report.html">Report</a></nav>
+<div class="wrap">
+<h1>Sequencer Block Production Cycle</h1>
+<blockquote>11 nodes · cohesion 0.33</blockquote>
+<h2>Key Concepts</h2>
+<ul>
+<li><strong>OP Stack 시퀀서 블록 생성 과정 (2초 사이클)</strong> (16 connections) — <code>concepts/op-stack-block-production.md</code></li>
+<li><strong>9단계 2초 블록 생성 사이클</strong> (8 connections) — <code>concepts/op-stack-block-production.md</code></li>
+<li><strong>FindL1Origin (L1 origin 선택)</strong> (4 connections) — <code>concepts/op-stack-block-production.md</code></li>
+<li><strong>Engine API 호출 순서 (forkchoiceUpdatedV3 → getPayloadV3 → newPayloadV3)</strong> (3 connections) — <code>concepts/op-stack-block-production.md</code></li>
+<li><strong>L1 origin 500ms best-effort 선캐싱</strong> (3 connections) — <code>concepts/op-stack-block-production.md</code></li>
+<li><strong>고정 블록 간격 (타임스탬프 산술 유도)</strong> (2 connections) — <code>concepts/op-stack-block-production.md</code></li>
+<li><strong>handleInvalid() 재스케줄</strong> (2 connections) — <code>concepts/op-stack-block-production.md</code></li>
+<li><strong>max sequencer drift 1800초</strong> (2 connections) — <code>concepts/op-stack-block-production.md</code></li>
+<li><strong>NoTxPool / deposit-only 블록</strong> (2 connections) — <code>concepts/op-stack-block-production.md</code></li>
+<li><strong>sealingDuration 50ms</strong> (2 connections) — <code>concepts/op-stack-block-production.md</code></li>
+<li><strong>드라이버 단일 이벤트 루프 직렬 실행</strong> (2 connections) — <code>concepts/op-stack-block-production.md</code></li>
+</ul>
+<h2>Relationships</h2>
+<ul>
+<li><a href="Transaction_Submission_%26_Local_Exemption.html">Transaction Submission &amp; Local Exemption</a> (4 shared connections)</li>
+<li><a href="Sqrt_Broadcast_%26_Tx_Gossip.html">Sqrt Broadcast &amp; Tx Gossip</a> (3 shared connections)</li>
+<li><a href="P2P_Peering_%26_Chain_Isolation.html">P2P Peering &amp; Chain Isolation</a> (1 shared connections)</li>
+<li><a href="personal_Namespace_Removal.html">personal Namespace Removal</a> (1 shared connections)</li>
+<li><a href="L1_Confirmation_Depth.html">L1 Confirmation Depth</a> (1 shared connections)</li>
+</ul>
+<h2>Source Files</h2>
+<ul>
+<li><code>concepts/op-stack-block-production.md</code></li>
+</ul>
+<h2>Audit Trail</h2>
+<ul>
+<li>EXTRACTED: 46 (100%)</li>
+<li>INFERRED: 0 (0%)</li>
+<li>AMBIGUOUS: 0 (0%)</li>
+</ul>
+<hr>
+<p><em>Part of the graphify knowledge wiki. See <a href="index.html">index</a> to navigate.</em></p>
+</div>
+</body></html>

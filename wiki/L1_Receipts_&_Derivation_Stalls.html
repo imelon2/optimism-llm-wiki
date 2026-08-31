@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L1 Receipts &amp; Derivation Stalls</title>
+<style>
+:root { color-scheme: dark; }
+body { margin:0; background:#0f0f1a; color:#d8d8e0;
+  font:15px/1.75 -apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif; }
+.wrap { max-width:860px; margin:0 auto; padding:28px 20px 80px; }
+nav.top { position:sticky; top:0; background:#0f0f1aee; border-bottom:1px solid #2a2a4e;
+  padding:10px 20px; font-size:13px; backdrop-filter:blur(6px); }
+nav.top a { color:#8ab4dd; text-decoration:none; margin-right:14px; }
+nav.top a:hover { text-decoration:underline; }
+h1,h2,h3 { color:#f0f0f5; line-height:1.35; margin:1.6em 0 .6em; }
+h1 { font-size:1.7em; margin-top:.4em; } h2 { font-size:1.3em; } h3 { font-size:1.1em; }
+a { color:#8ab4dd; }
+code { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:4px;
+  padding:1px 5px; font-size:.9em; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+pre { background:#1a1a2e; border:1px solid #2a2a4e; border-radius:8px;
+  padding:12px 14px; overflow-x:auto; }
+pre code { background:none; border:none; padding:0; }
+blockquote { margin:1em 0; padding:.4em 1em; border-left:3px solid #4E79A7;
+  background:#16162a; color:#aaa; }
+hr { border:none; border-top:1px solid #2a2a4e; margin:2em 0; }
+table { border-collapse:collapse; width:100%; display:block; overflow-x:auto; }
+th,td { border:1px solid #2a2a4e; padding:6px 10px; text-align:left; }
+th { background:#1a1a2e; }
+ul,ol { padding-left:1.4em; }
+li { margin:.25em 0; }
+</style>
+</head><body>
+<nav class="top"><a href="../index.html">← Graph</a><a href="../wiki/index.html">Wiki</a><a href="../report.html">Report</a></nav>
+<div class="wrap">
+<h1>L1 Receipts &amp; Derivation Stalls</h1>
+<blockquote>22 nodes · cohesion 0.10</blockquote>
+<h2>Key Concepts</h2>
+<ul>
+<li><strong>context deadline exceeded</strong> (4 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>FetchReceipts</strong> (4 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>Single event loop blocking</strong> (4 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>callTimeout</strong> (4 connections) — <code>runbooks/op-node-find-l1-origin-stall.md</code></li>
+<li><strong>Exponential backoff recovery window</strong> (3 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>l1.rpckind mismatch slow fetch path</strong> (3 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>L1Traversal.AdvanceL1Block</strong> (3 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>Lock ratio 91%</strong> (3 connections) — <code>runbooks/op-node-find-l1-origin-stall.md</code></li>
+<li><strong>retry.Do blocking backoff</strong> (3 connections) — <code>runbooks/op-node-find-l1-origin-stall.md</code></li>
+<li><strong>CachingReceiptsProvider</strong> (2 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>callTimeout</strong> (2 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>UpdateSystemConfigWithL1Receipts</strong> (2 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>sync.FindL2Heads</strong> (2 connections) — <code>runbooks/op-node-find-l1-origin-stall.md</code></li>
+<li><strong>batchCallTimeout</strong> (1 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>DerivationPipeline.Step</strong> (1 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>event.NewGlobalSynchronous</strong> (1 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>resetting back RPC preferences, please review RPC provider kind setting</strong> (1 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>retry.Exponential</strong> (1 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>SystemConfig ConfigUpdate event</strong> (1 connections) — <code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><strong>batchCallTimeout</strong> (1 connections) — <code>runbooks/op-node-find-l1-origin-stall.md</code></li>
+<li><strong>Reset overlap 65s per block</strong> (1 connections) — <code>runbooks/op-node-find-l1-origin-stall.md</code></li>
+<li><strong>ResetEngineRequestEvent</strong> (1 connections) — <code>runbooks/op-node-find-l1-origin-stall.md</code></li>
+</ul>
+<h2>Relationships</h2>
+<ul>
+<li><a href="Sequencer_L1_Origin_Stalls.html">Sequencer L1 Origin Stalls</a> (2 shared connections)</li>
+<li><a href="discv5_Bootnode_Discovery.html">discv5 Bootnode Discovery</a> (1 shared connections)</li>
+<li><a href="Engine_API_%26_Payload_Building.html">Engine API &amp; Payload Building</a> (1 shared connections)</li>
+</ul>
+<h2>Source Files</h2>
+<ul>
+<li><code>runbooks/op-node-fetch-receipts-context-deadline.md</code></li>
+<li><code>runbooks/op-node-find-l1-origin-stall.md</code></li>
+</ul>
+<h2>Audit Trail</h2>
+<ul>
+<li>EXTRACTED: 41 (85%)</li>
+<li>INFERRED: 7 (15%)</li>
+<li>AMBIGUOUS: 0 (0%)</li>
+</ul>
+<hr>
+<p><em>Part of the graphify knowledge wiki. See <a href="index.html">index</a> to navigate.</em></p>
+</div>
+</body></html>

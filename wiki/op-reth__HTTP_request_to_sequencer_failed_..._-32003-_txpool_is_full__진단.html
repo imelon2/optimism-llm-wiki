@@ -2,7 +2,7 @@
 <html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AvailableReceiptsFetchingMethods</title>
+<title>op-reth &quot;HTTP request to sequencer failed ... -32003: txpool is full&quot; 진단</title>
 <style>
 :root { color-scheme: dark; }
 body { margin:0; background:#0f0f1a; color:#d8d8e0;
@@ -32,25 +32,24 @@ li { margin:.25em 0; }
 </head><body>
 <nav class="top"><a href="../index.html">← Graph</a><a href="../wiki/index.html">Wiki</a><a href="../report.html">Report</a></nav>
 <div class="wrap">
-<h1>AvailableReceiptsFetchingMethods</h1>
-<blockquote>God node · 10 connections · <code>concepts/op-node-l1-rpckind-receipts.md</code></blockquote>
-<p><strong>Community:</strong> <a href="L1_RPC_Kind_%26_Receipts_Methods.html">L1 RPC Kind &amp; Receipts Methods</a></p>
+<h1>op-reth "HTTP request to sequencer failed ... -32003: txpool is full" 진단</h1>
+<blockquote>God node · 12 connections · <code>runbooks/op-reth-sequencer-forward-txpool-full.md</code></blockquote>
+<p><strong>Community:</strong> <a href="Transaction_Submission_%26_Local_Exemption.html">Transaction Submission &amp; Local Exemption</a></p>
 <h2>Connections by Relation</h2>
-<h3>calls</h3>
-<ul>
-<li>PickReceiptsMethod <code>EXTRACTED</code></li>
-</ul>
 <h3>references</h3>
 <ul>
-<li>RPCProviderKind <code>EXTRACTED</code></li>
-<li>alchemy_getTransactionReceipts <code>EXTRACTED</code></li>
-<li>PickBestReceiptsFetchingMethod <code>EXTRACTED</code></li>
-<li>OnReceiptsMethodErr <code>EXTRACTED</code></li>
-<li>debug_getRawReceipts <code>EXTRACTED</code></li>
-<li>erigon_getBlockReceiptsByBlockHash <code>EXTRACTED</code></li>
-<li>eth_getBlockReceipts <code>EXTRACTED</code></li>
-<li>eth_getTransactionReceipt batch (최후 fallback) <code>EXTRACTED</code></li>
-<li>parity_getBlockReceipts <code>EXTRACTED</code></li>
+<li><a href="OP_Stack_%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98_%EC%A0%84%ED%8C%8C_%EA%B2%BD%EB%A1%9C_%28Ingress_%E2%86%92_%EC%8B%9C%ED%80%80%EC%84%9C%29.html">OP Stack 트랜잭션 전파 경로 (Ingress → 시퀀서)</a> <code>EXTRACTED</code></li>
+<li><a href="reth-op-reth_txpool_%EC%9A%A9%EB%9F%89_%ED%95%9C%EB%8F%84_%26_%EA%B3%84%EC%A0%95_%EC%8A%AC%EB%A1%AF_%EC%A0%9C%ED%95%9C_%28-32003__txpool_is_full_%29.html">reth/op-reth txpool 용량 한도 &amp; 계정 슬롯 제한 (-32003 "txpool is full")</a> <code>EXTRACTED</code></li>
+<li><a href="op-reth_--txpool.nolocals_%26_Local_Transaction_Exemption.html">op-reth --txpool.nolocals &amp; Local Transaction Exemption</a> <code>EXTRACTED</code></li>
+<li>Wiki Index <code>EXTRACTED</code></li>
+<li>Wiki Log <code>EXTRACTED</code></li>
+<li>진단 절차 (txpool_status / txpool_contentFrom / 원본 에러 문자열) <code>EXTRACTED</code></li>
+<li>forward_raw_transaction / forward_raw_transaction_conditional <code>EXTRACTED</code></li>
+<li>재시도 없음 · 로컬 풀 미보관 (조기 반환) <code>EXTRACTED</code></li>
+<li>원인 A — 시퀀서 서브풀 용량 초과 <code>EXTRACTED</code></li>
+<li>원인 B — 계정 슬롯 초과 <code>EXTRACTED</code></li>
+<li>rollup-boost parse_response_code — 에러 코드 무변형 통과 <code>EXTRACTED</code></li>
+<li>SequencerClient::request() — 로그 발생 지점 <code>EXTRACTED</code></li>
 </ul>
 <hr>
 <p><em>Part of the graphify knowledge wiki. See <a href="index.html">index</a> to navigate.</em></p>
